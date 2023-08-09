@@ -1,4 +1,5 @@
 @file:Suppress("UnstableApiUsage")
+
 pluginManagement {
     includeBuild("build-logic")
     repositories {
@@ -21,3 +22,4 @@ include(":context")
 include(":base")
 include(":uikit")
 include(":logger")
+include(":compose")

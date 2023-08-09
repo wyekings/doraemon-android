@@ -34,15 +34,17 @@ android {
 dependencies {
 
     implementation(project(":logger"))
+    implementation(project(":compose"))
 
     implementation(libs.core.ktx)
     implementation(libs.lifecycle.runtime.ktx)
 
     implementation(libs.activity.compose)
-    implementation(libs.ui)
-    implementation(libs.ui.graphics)
-    implementation(libs.ui.tooling.preview)
     implementation(libs.material3)
+    implementation(libs.ui.tooling.preview)
+//    implementation(libs.ui)
+//    implementation(libs.ui.graphics)
+
     androidTestImplementation(libs.ui.test.junit4)
     debugImplementation(libs.ui.tooling)
     debugImplementation(libs.ui.test.manifest)
