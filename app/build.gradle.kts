@@ -33,6 +33,7 @@ android {
 
 dependencies {
 
+    implementation(project(":base"))
     implementation(project(":logger"))
     implementation(project(":compose"))
 
@@ -44,6 +45,11 @@ dependencies {
     implementation(libs.ui.tooling.preview)
 //    implementation(libs.ui)
 //    implementation(libs.ui.graphics)
+
+    implementation(libs.coil.kt.compose)
+    implementation(libs.coil.kt.gif)
+    implementation(libs.coil.kt.gif)
+    implementation(libs.landscapist.coil)
 
     androidTestImplementation(libs.ui.test.junit4)
     debugImplementation(libs.ui.tooling)
