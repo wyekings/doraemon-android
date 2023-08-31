@@ -9,8 +9,10 @@ android {
 
 dependencies {
 
-    implementation(libs.core.ktx)
     implementation(libs.appcompat)
+    implementation(libs.core.ktx)
+    implementation(libs.activity.ktx)
+    implementation(libs.fragment.ktx)
     implementation(libs.material)
 
     testImplementation(libs.junit4)

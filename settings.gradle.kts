@@ -1,5 +1,8 @@
 @file:Suppress("UnstableApiUsage")
 
+include(":features:sunflower")
+
+
 pluginManagement {
     includeBuild("build-logic")
     repositories {
@@ -22,4 +25,5 @@ include(":context")
 include(":base")
 include(":uikit")
 include(":logger")
-include(":compose")
+include(":accompanist")
+include(":features:sunflower")

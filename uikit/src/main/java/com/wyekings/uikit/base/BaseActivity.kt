@@ -1,4 +1,4 @@
-package com.wyekings.base
+package com.wyekings.uikit.base
 
 import androidx.annotation.LayoutRes
 import androidx.appcompat.app.AppCompatActivity
@@ -6,7 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 /**
  *  @author wye on 8/8/23
  */
-abstract class BaseAppCompatActivity(@LayoutRes contentLayoutId: Int) :
+abstract class BaseActivity(@LayoutRes contentLayoutId: Int) :
     AppCompatActivity(contentLayoutId) {
 
     /**

@@ -32,14 +32,18 @@ android {
 }
 
 dependencies {
-
     implementation(project(":base"))
     implementation(project(":logger"))
-    implementation(project(":compose"))
+    implementation(project(":accompanist"))
+    implementation(project(":uikit"))
 
     implementation(libs.core.ktx)
+    implementation(libs.core.ktx)
+    implementation(libs.activity.ktx)
+    implementation(libs.fragment.ktx)
     implementation(libs.lifecycle.runtime.ktx)
 
+    // compose
     implementation(libs.activity.compose)
     implementation(libs.material3)
     implementation(libs.ui.tooling.preview)

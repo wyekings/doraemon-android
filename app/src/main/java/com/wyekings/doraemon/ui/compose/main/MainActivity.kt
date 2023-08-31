@@ -1,4 +1,4 @@
-package com.wyekings.doraemon.ui.main
+package com.wyekings.doraemon.ui.compose.main
 
 import android.os.Bundle
 import androidx.activity.compose.setContent
