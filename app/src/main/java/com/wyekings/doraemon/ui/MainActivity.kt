@@ -25,27 +25,18 @@ import kotlinx.coroutines.launch
 @AndroidEntryPoint
 class MainActivity : BaseComposeActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
-        val splashScreen = installSplashScreen()
-        splashScreen.setKeepOnScreenCondition { true }
         super.onCreate(savedInstanceState)
         setContent {
             DoraemonTheme {
                 Content()
             }
         }
-
-        lifecycleScope.launch {
-            delay(500)
-            splashScreen.setKeepOnScreenCondition { false }
-        }
     }
 
     companion object {
 
         fun start(context: Context) {
-            val intent = Intent(context, MainActivity::class.java).apply {
-                addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
-            }
+            val intent = Intent(context, MainActivity::class.java)
             context.startActivity(intent)
         }
     }
