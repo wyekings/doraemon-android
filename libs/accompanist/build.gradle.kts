@@ -5,7 +5,7 @@ plugins {
 }
 
 android {
-    namespace = "com.wyekings.sunflower"
+    namespace = "com.wyekings.accompanist"
 }
 
 dependencies {
@@ -14,11 +14,12 @@ dependencies {
     implementation(libs.activity.compose)
     implementation(libs.material3)
     implementation(libs.ui.tooling.preview)
+
     androidTestImplementation(libs.ui.test.junit4)
     debugImplementation(libs.ui.tooling)
     debugImplementation(libs.ui.test.manifest)
 
-//    implementation(libs.core.ktx)
+    implementation(libs.core.ktx)
 //    implementation(libs.appcompat)
 //    implementation(libs.material)
 

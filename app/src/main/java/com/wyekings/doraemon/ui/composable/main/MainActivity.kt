@@ -1,4 +1,4 @@
-package com.wyekings.doraemon.ui.compose.main
+package com.wyekings.doraemon.ui.composable.main
 
 import android.os.Bundle
 import androidx.activity.compose.setContent
@@ -9,7 +9,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.tooling.preview.Preview
 import com.wyekings.doraemon.base.BaseComposeActivity
-import com.wyekings.doraemon.ui.compose.sample.ImageSample
+import com.wyekings.doraemon.ui.composable.sample.ImageSample
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

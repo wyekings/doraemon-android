@@ -33,11 +33,14 @@ android {
 
 dependencies {
     implementation(project(":base"))
-    implementation(project(":logger"))
-    implementation(project(":accompanist"))
-    implementation(project(":uikit"))
+    implementation(project(":libs:logger"))
+    implementation(project(":libs:accompanist"))
+    implementation(project(":libs:uikit"))
+    implementation(project(":components"))
+    implementation(project(":composable"))
+    implementation(project(":features:sunflower"))
+    implementation(project(":features:playground"))
 
-    implementation(libs.core.ktx)
     implementation(libs.core.ktx)
     implementation(libs.activity.ktx)
     implementation(libs.fragment.ktx)

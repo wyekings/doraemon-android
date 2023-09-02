@@ -1,6 +1,5 @@
 @file:Suppress("UnstableApiUsage")
 
-include(":features:sunflower")
 
 
 pluginManagement {
@@ -21,9 +20,12 @@ dependencyResolutionManagement {
 
 rootProject.name = "Doraemon"
 include(":app")
-include(":context")
 include(":base")
-include(":uikit")
-include(":logger")
-include(":accompanist")
+include(":composable")
+include(":components")
 include(":features:sunflower")
+include(":features:playground")
+include(":libs:context")
+include(":libs:uikit")
+include(":libs:logger")
+include(":libs:accompanist")

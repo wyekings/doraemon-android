@@ -1,6 +1,5 @@
-package com.wyekings.doraemon.ui.compose.sample
+package com.wyekings.doraemon.ui.composable.sample
 
-import android.widget.GridLayout
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column

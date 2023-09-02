@@ -1,4 +1,4 @@
-package com.wyekings.doraemon.ui.compose.sample
+package com.wyekings.doraemon.ui.composable.sample
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
