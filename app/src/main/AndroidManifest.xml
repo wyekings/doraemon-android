@@ -17,7 +17,7 @@
         android:theme="@style/Theme.Doraemon"
         tools:targetApi="31">
         <activity
-            android:name="com.wyekings.doraemon.ui.composable.main.MainActivity"
+            android:name="com.wyekings.doraemon.ui.MainActivity"
             android:exported="true"
             android:theme="@style/Theme.Doraemon">
             <intent-filter>

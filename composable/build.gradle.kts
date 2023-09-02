@@ -10,6 +10,8 @@ android {
 
 dependencies {
 
+    implementation(project(":common"))
+
     // compose
     implementation(libs.activity.compose)
     implementation(libs.material3)
@@ -19,7 +21,12 @@ dependencies {
     debugImplementation(libs.ui.tooling)
     debugImplementation(libs.ui.test.manifest)
 
-    implementation(libs.core.ktx)
+    implementation(libs.coil.kt.compose)
+    implementation(libs.coil.kt.gif)
+    implementation(libs.coil.kt.gif)
+    implementation(libs.landscapist.coil)
+
+//    implementation(libs.core.ktx)
 //    implementation(libs.appcompat)
 //    implementation(libs.material)
 

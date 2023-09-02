@@ -1,7 +1,6 @@
 @file:Suppress("UnstableApiUsage")
 
 
-
 pluginManagement {
     includeBuild("build-logic")
     repositories {
@@ -19,8 +18,9 @@ dependencyResolutionManagement {
 }
 
 rootProject.name = "Doraemon"
-include(":app")
 include(":base")
+include(":app")
+include(":common")
 include(":composable")
 include(":components")
 include(":features:sunflower")

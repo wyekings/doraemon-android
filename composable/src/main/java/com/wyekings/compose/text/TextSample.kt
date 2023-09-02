@@ -1,4 +1,4 @@
-package com.wyekings.doraemon.ui.composable.sample
+package com.wyekings.compose.text
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -17,7 +17,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.wyekings.doraemon.ui.theme.DoraemonTheme
 
 /**
  *  @author wye on 8/9/23
@@ -31,7 +30,6 @@ private fun TextSamplePreview() {
 
 @Composable
 fun TextSample() {
-    DoraemonTheme {
         Surface(modifier = Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background) {
             Column(
                 modifier = Modifier
@@ -42,7 +40,6 @@ fun TextSample() {
                 Text1(name = "Compose!")
             }
         }
-    }
 }
 
 @Composable

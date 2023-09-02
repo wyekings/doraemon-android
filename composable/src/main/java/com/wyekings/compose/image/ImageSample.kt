@@ -1,4 +1,4 @@
-package com.wyekings.doraemon.ui.composable.sample
+package com.wyekings.compose.image
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -31,9 +31,7 @@ import coil.compose.rememberAsyncImagePainter
 import coil.request.ImageRequest
 import com.skydoves.landscapist.ImageOptions
 import com.skydoves.landscapist.coil.CoilImage
-import com.wyekings.doraemon.R
-import com.wyekings.doraemon.api.TestUrls
-import com.wyekings.doraemon.ui.theme.DoraemonTheme
+import com.wyekings.common.api.TestUrls
 
 /**
  *  @author wye on 8/9/23
@@ -41,7 +39,6 @@ import com.wyekings.doraemon.ui.theme.DoraemonTheme
 
 @Composable
 fun ImageSample() {
-    DoraemonTheme {
         Surface(modifier = Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background) {
             Column(
                 modifier = Modifier
@@ -66,13 +63,12 @@ fun ImageSample() {
                 CoilImageSample(modifier = modifier)
             }
         }
-    }
 }
 
 @Composable
 fun SimpleImageSample(modifier: Modifier) {
     Image(
-        painter = painterResource(id = R.drawable.ic_tree),
+        painter = painterResource(id = com.wyekings.common.R.drawable.ic_tree),
         contentDescription = "Tree",
         modifier = modifier,
     )
@@ -88,7 +84,7 @@ fun AsyncImageSample(modifier: Modifier) {
             .build(),
         contentDescription = "AsyncImage",
         contentScale = ContentScale.Crop,
-        placeholder = painterResource(id = R.drawable.ic_img_placeholder),
+        placeholder = painterResource(id = com.wyekings.common.R.drawable.ic_img_placeholder),
         modifier = modifier,
     )
 }
@@ -129,7 +125,7 @@ fun GifImageSample(modifier: Modifier) {
         model = TestUrls.randomGif(),
         contentDescription = "AsyncImage",
         contentScale = ContentScale.Crop,
-        placeholder = painterResource(id = R.drawable.ic_img_placeholder),
+        placeholder = painterResource(id = com.wyekings.common.R.drawable.ic_img_placeholder),
         modifier = modifier,
     )
 }

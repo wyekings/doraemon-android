@@ -1,4 +1,4 @@
-package com.wyekings.doraemon.api
+package com.wyekings.common.api
 
 /**
  *  @author wye on 8/8/23

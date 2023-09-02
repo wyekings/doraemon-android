@@ -1,4 +1,4 @@
-package com.wyekings.doraemon.ui.composable.main
+package com.wyekings.doraemon.ui
 
 import android.os.Bundle
 import androidx.activity.compose.setContent
@@ -9,7 +9,8 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.tooling.preview.Preview
 import com.wyekings.doraemon.base.BaseComposeActivity
-import com.wyekings.doraemon.ui.composable.sample.ImageSample
+import com.wyekings.compose.image.ImageSample
+import com.wyekings.doraemon.ui.theme.DoraemonTheme
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -17,11 +18,9 @@ class MainActivity : BaseComposeActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            var name by remember {
-                mutableStateOf("name")
+            DoraemonTheme {
+                Content()
             }
-            name = "test"
-            Content()
         }
     }
 }
