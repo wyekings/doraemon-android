@@ -6,6 +6,7 @@ plugins {
     id("doraemon.android.hilt")
     id("doraemon.android.application.compose")
     id("doraemon.android.application.flavors")
+    alias(libs.plugins.kotlinAndroid)
 }
 
 android {
@@ -41,6 +42,8 @@ dependencies {
     implementation(project(":features:sunflower"))
     implementation(project(":features:playground"))
 
+    implementation(libs.splash.screen)
+
     implementation(libs.core.ktx)
     implementation(libs.activity.ktx)
     implementation(libs.fragment.ktx)
@@ -57,6 +60,8 @@ dependencies {
     implementation(libs.coil.kt.gif)
     implementation(libs.coil.kt.gif)
     implementation(libs.landscapist.coil)
+    implementation(libs.appcompat)
+    implementation(libs.material)
 
     androidTestImplementation(libs.ui.test.junit4)
     debugImplementation(libs.ui.tooling)
