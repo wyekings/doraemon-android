@@ -1,4 +1,4 @@
-package com.wyekings.compose.image
+package com.wyekings.composable.image
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background

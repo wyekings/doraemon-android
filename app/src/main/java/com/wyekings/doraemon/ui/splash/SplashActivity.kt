@@ -5,10 +5,8 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import androidx.activity.ComponentActivity
-import androidx.activity.compose.setContent
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.lifecycle.lifecycleScope
-import com.wyekings.doraemon.ui.MainActivity
 import com.wyekings.doraemon.ui.Navigator
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.delay
@@ -20,15 +18,15 @@ import javax.inject.Inject
  */
 @SuppressLint("CustomSplashScreen")
 @AndroidEntryPoint
-class SplashActivity : ComponentActivity(){
+class SplashActivity : ComponentActivity() {
 
-    @Inject lateinit var navigator:Navigator
+    @Inject lateinit var navigator: Navigator
 
     override fun onCreate(savedInstanceState: Bundle?) {
         val splashScreen = installSplashScreen()
         splashScreen.setKeepOnScreenCondition { true }
         super.onCreate(savedInstanceState)
-        if (isNotRootLauncher()){
+        if (isNotRootLauncher()) {
             finish()
             return
         }

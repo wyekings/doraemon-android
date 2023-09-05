@@ -1,4 +1,4 @@
-package com.wyekings.compose
+package com.wyekings.composeable
 
 import org.junit.Test
 

@@ -1,6 +1,8 @@
 package com.wyekings.doraemon.ui
 
 import android.content.Context
+import com.wyekings.composable.ui.ComposableActivity
+import com.wyekings.doraemon.ui.main.MainActivity
 import com.wyekings.doraemon.ui.splash.SplashActivity
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -19,4 +21,7 @@ class Navigator @Inject constructor() {
         MainActivity.start(context)
     }
 
+    fun toComposable(context: Context) {
+        ComposableActivity.start(context)
+    }
 }

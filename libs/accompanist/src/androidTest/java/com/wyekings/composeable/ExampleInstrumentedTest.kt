@@ -1,4 +1,4 @@
-package com.wyekings.compose
+package com.wyekings.composeable
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

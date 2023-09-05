@@ -1,4 +1,4 @@
-package com.wyekings.compose.text
+package com.wyekings.composable.text
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable

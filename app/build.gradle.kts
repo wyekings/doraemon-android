@@ -6,7 +6,6 @@ plugins {
     id("doraemon.android.hilt")
     id("doraemon.android.application.compose")
     id("doraemon.android.application.flavors")
-    alias(libs.plugins.kotlinAndroid)
 }
 
 android {
@@ -16,6 +15,10 @@ android {
         applicationId = "com.wyekings.doraemon"
         versionCode = libs.versions.versionCode.get().toInt()
         versionName = libs.versions.versionName.get()
+    }
+
+    buildFeatures {
+        viewBinding = true
     }
 
     buildTypes {
@@ -60,12 +63,15 @@ dependencies {
     implementation(libs.coil.kt.gif)
     implementation(libs.coil.kt.gif)
     implementation(libs.landscapist.coil)
-    implementation(libs.appcompat)
-    implementation(libs.material)
+
 
     androidTestImplementation(libs.ui.test.junit4)
     debugImplementation(libs.ui.tooling)
     debugImplementation(libs.ui.test.manifest)
+
+//    implementation(libs.appcompat)
+    implementation(libs.material)
+    implementation(libs.view.binding)
 
     testImplementation(libs.junit4)
     androidTestImplementation(libs.androidx.test.ext.junit)
