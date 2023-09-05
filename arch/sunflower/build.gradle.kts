@@ -2,6 +2,7 @@
 plugins {
     id("doraemon.android.library")
     id("doraemon.android.library.compose")
+    id("doraemon.android.hilt")
 }
 
 android {
@@ -10,13 +11,22 @@ android {
 
 dependencies {
 
+    implementation(project(":base"))
+    implementation(project(":common"))
+
     // compose
-    implementation(libs.activity.compose)
+//    implementation(libs.activity.compose)
     implementation(libs.material3)
     implementation(libs.ui.tooling.preview)
+
     androidTestImplementation(libs.ui.test.junit4)
     debugImplementation(libs.ui.tooling)
     debugImplementation(libs.ui.test.manifest)
+
+    implementation(libs.coil.kt.compose)
+    implementation(libs.coil.kt.gif)
+    implementation(libs.coil.kt.gif)
+    implementation(libs.landscapist.coil)
 
 //    implementation(libs.core.ktx)
 //    implementation(libs.appcompat)

@@ -4,6 +4,7 @@ import android.content.Context
 import com.wyekings.composable.ui.ComposableActivity
 import com.wyekings.doraemon.ui.main.MainActivity
 import com.wyekings.doraemon.ui.splash.SplashActivity
+import com.wyekings.sunflower.ui.SunflowerActivity
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -23,5 +24,9 @@ class Navigator @Inject constructor() {
 
     fun toComposable(context: Context) {
         ComposableActivity.start(context)
+    }
+
+    fun toSunflower(context: Context) {
+        SunflowerActivity.start(context)
     }
 }

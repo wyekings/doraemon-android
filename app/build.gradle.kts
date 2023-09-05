@@ -42,8 +42,8 @@ dependencies {
     implementation(project(":libs:uikit"))
     implementation(project(":components"))
     implementation(project(":composable"))
-    implementation(project(":features:sunflower"))
-    implementation(project(":features:playground"))
+    implementation(project(":arch:sunflower"))
+    implementation(project(":arch:playground"))
 
     implementation(libs.splash.screen)
 
