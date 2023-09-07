@@ -13,9 +13,13 @@ dependencies {
 
     implementation(project(":base"))
     implementation(project(":common"))
+    implementation(project(":libs:accompanist"))
+
+    implementation(libs.navigation.compose)
 
     // compose
-//    implementation(libs.activity.compose)
+    implementation(libs.activity.compose)
+    implementation(libs.activity.ktx)
     implementation(libs.material3)
     implementation(libs.ui.tooling.preview)
 

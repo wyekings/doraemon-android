@@ -15,6 +15,7 @@ dependencies {
     implementation(project(":common"))
 
     // compose
+    implementation(libs.activity.ktx)
 //    implementation(libs.activity.compose)
     implementation(libs.material3)
     implementation(libs.ui.tooling.preview)
@@ -22,6 +23,8 @@ dependencies {
     androidTestImplementation(libs.ui.test.junit4)
     debugImplementation(libs.ui.tooling)
     debugImplementation(libs.ui.test.manifest)
+
+    implementation(libs.navigation.compose)
 
     implementation(libs.coil.kt.compose)
     implementation(libs.coil.kt.gif)

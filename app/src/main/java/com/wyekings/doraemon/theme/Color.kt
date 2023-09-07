@@ -1,4 +1,4 @@
-package com.wyekings.doraemon.ui.theme
+package com.wyekings.doraemon.theme
 
 import androidx.compose.ui.graphics.Color
 

@@ -1,9 +1,8 @@
 package com.wyekings.doraemon.ui.main
 
 import androidx.lifecycle.ViewModel
-import com.wyekings.composable.ui.ComposableActivity
 import com.wyekings.doraemon.ui.main.domain.model.Module
-import com.wyekings.sunflower.ui.SunflowerActivity
+import com.wyekings.sunflower.SunflowerActivity
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow

@@ -4,7 +4,7 @@ import android.content.Context
 import com.wyekings.composable.ui.ComposableActivity
 import com.wyekings.doraemon.ui.main.MainActivity
 import com.wyekings.doraemon.ui.splash.SplashActivity
-import com.wyekings.sunflower.ui.SunflowerActivity
+import com.wyekings.sunflower.SunflowerActivity
 import javax.inject.Inject
 import javax.inject.Singleton
 

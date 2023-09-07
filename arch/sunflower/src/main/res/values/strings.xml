@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="sunflower_app_name">Sunflower</string>
+    <string name="menu_filter_by_grow_zone">Filter by grow zone</string>
+    <string name="my_garden_title">My garden</string>
+    <string name="plant_list_title" >Plant list</string>
+</resources>

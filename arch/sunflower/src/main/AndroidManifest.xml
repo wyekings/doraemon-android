@@ -3,7 +3,8 @@
 
     <application>
         <activity
-            android:name=".ui.SunflowerActivity"
+            android:name=".SunflowerActivity"
+            android:windowSoftInputMode="adjustResize"
             android:exported="false" />
     </application>
 </manifest>

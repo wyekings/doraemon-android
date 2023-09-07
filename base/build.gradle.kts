@@ -12,6 +12,7 @@ dependencies {
 //    implementation(libs.core.ktx)
     api(libs.appcompat)
     api(libs.activity.compose)
+    api(libs.activity.ktx)
 //    implementation(libs.material)
 
     testImplementation(libs.junit4)
