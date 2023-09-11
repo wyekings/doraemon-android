@@ -13,6 +13,7 @@ dependencies {
 
     implementation(project(":base"))
     implementation(project(":common"))
+    implementation(project(":libs:accompanist"))
 
     // compose
     implementation(libs.activity.ktx)

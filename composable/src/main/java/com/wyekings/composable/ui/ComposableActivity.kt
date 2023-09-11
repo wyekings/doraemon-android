@@ -7,6 +7,7 @@ import androidx.compose.material3.MaterialTheme
 import com.wyekings.base.BaseActivity
 import com.wyekings.base.ext.start
 import com.wyekings.composable.image.ImageSample
+import com.wyekings.composable.tabrow.TabRowTemplate
 import dagger.hilt.android.AndroidEntryPoint
 
 /**
@@ -19,7 +20,7 @@ class ComposableActivity:BaseActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             MaterialTheme {
-                ImageSample()
+                TabRowTemplate()
             }
         }
     }

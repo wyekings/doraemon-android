@@ -2,6 +2,7 @@ package com.wyekings.doraemon.ui.main
 
 import androidx.lifecycle.ViewModel
 import com.wyekings.doraemon.ui.main.domain.model.Module
+import com.wyekings.playground.PlaygroundActivity
 import com.wyekings.sunflower.SunflowerActivity
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -24,7 +25,10 @@ class ArchViewModel @Inject constructor() : ViewModel() {
     val uiState = _uiState.asStateFlow()
 
     init {
-        val modules = listOf(Module("Sunflower", SunflowerActivity::class.java))
+        val modules = listOf(
+            Module("Sunflower", SunflowerActivity::class.java),
+            Module("Playground", PlaygroundActivity::class.java),
+        )
         _uiState.update { it.copy(modules = modules) }
     }
 

@@ -2,6 +2,7 @@
 plugins {
     id("doraemon.android.library")
     id("doraemon.android.library.compose")
+    id("doraemon.android.hilt")
 }
 
 android {
@@ -9,6 +10,10 @@ android {
 }
 
 dependencies {
+
+    implementation(project(":base"))
+    implementation(project(":common"))
+    implementation(project(":libs:accompanist"))
 
     implementation(libs.appcompat)
     implementation(libs.core.ktx)
