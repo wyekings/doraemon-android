@@ -1,3 +1,5 @@
+import java.util.Properties
+import java.io.FileInputStream
 import com.wyekings.doreamon.DoraemonBuildType
 
 @Suppress("DSL_SCOPE_VIOLATION") // TODO: Remove once KTIJ-19369 is fixed
@@ -7,6 +9,10 @@ plugins {
     id("doraemon.android.application.compose")
     id("doraemon.android.application.flavors")
 }
+
+val keystorePropertiesFile: File = rootProject.file("keystore.properties")
+val keystoreProperties = Properties()
+keystoreProperties.load(FileInputStream(keystorePropertiesFile))
 
 android {
     namespace = "com.wyekings.doraemon"
@@ -21,13 +27,25 @@ android {
         viewBinding = true
     }
 
+    signingConfigs {
+        create("config") {
+            keyAlias = keystoreProperties["keyAlias"] as String
+            keyPassword = keystoreProperties["keyPassword"] as String
+            storeFile = file(keystoreProperties["storeFile"] as String)
+            storePassword = keystoreProperties["storePassword"] as String
+            enableV4Signing = true
+        }
+    }
     buildTypes {
         debug {
             applicationIdSuffix = DoraemonBuildType.DEBUG.applicationIdSuffix
+            signingConfig = signingConfigs.getByName("config")
+            isMinifyEnabled = false
         }
         release {
             applicationIdSuffix = DoraemonBuildType.RELEASE.applicationIdSuffix
             isMinifyEnabled = true
+            signingConfig = signingConfigs.getByName("config")
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"
             )
