@@ -8,6 +8,7 @@ android {
 }
 
 dependencies {
+    implementation(project(":libs:logger"))
 
     implementation(libs.appcompat)
     implementation(libs.core.ktx)

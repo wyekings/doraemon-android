@@ -5,31 +5,59 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.ActionBarDrawerToggle
+import androidx.appcompat.widget.LinearLayoutCompat
 import androidx.core.content.ContextCompat
+import androidx.core.splashscreen.SplashScreen
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
+import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.updateLayoutParams
+import androidx.core.view.updatePadding
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.wyekings.base.BaseActivity
 import com.wyekings.base.ext.start
 import com.wyekings.doraemon.R
 import com.wyekings.doraemon.databinding.ActivityMainBinding
+import com.wyekings.uikit.insetter.EdgeToEdge
+import com.wyekings.uikit.insetter.initialPadding
 import com.wyekings.uikit.pager.Pager
 import com.wyekings.uikit.pager.bind
 import com.wyekings.uikit.pager.selectPager
 import dagger.hilt.android.AndroidEntryPoint
+import timber.log.Timber
 import javax.inject.Inject
 import javax.inject.Named
 
 @AndroidEntryPoint
 class MainActivity : BaseActivity(R.layout.activity_main) {
 
-    @Inject @Named(TAG_PAGERS) lateinit var pagers: Array<Pager>
+    @Inject
+    @Named(TAG_PAGERS)
+    lateinit var pagers: Array<Pager>
 
     private val viewBinding by viewBinding(ActivityMainBinding::bind)
     private val viewModel by viewModels<MainViewModel>()
     override fun onCreate(savedInstanceState: Bundle?) {
         val splashScreen = installSplashScreen().apply { setKeepOnScreenCondition { true } }
         super.onCreate(savedInstanceState)
+        applyEdgeToEdge()
         bindUi()
+        hideSplashScreen(splashScreen)
+    }
+
+    private fun applyEdgeToEdge() {
+        val bottomNavigationInitialPadding = viewBinding.bottomNavigation.initialPadding
+        EdgeToEdge(this).apply {
+            val top = it.getInsets(WindowInsetsCompat.Type.statusBars()).top
+            viewBinding.toolbar.updateLayoutParams<LinearLayoutCompat.LayoutParams> {
+                this.topMargin = top
+            }
+            // val bottom = it.getInsets(WindowInsetsCompat.Type.navigationBars()).bottom
+            // BottomNavigationView handled WindowInsets internal，so it's ok to remove the code below
+            // viewBinding.bottomNavigation.updatePadding(bottom = bottom + bottomNavigationInitialPadding.bottom)
+        }
+    }
+
+    private fun hideSplashScreen(splashScreen: SplashScreen) {
         viewBinding.root.post { splashScreen.setKeepOnScreenCondition { false } }
     }
 
