@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/header"
     android:layout_width="match_parent"
-    android:layout_height="160dp"
+    android:layout_height="match_parent"
     android:background="@color/white">
 
     <com.google.android.material.imageview.ShapeableImageView
@@ -12,9 +13,9 @@
         android:layout_height="70dp"
         android:background="@drawable/vector_ic_launcher_background"
         android:padding="4dp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="20dp"
         app:layout_constraintTop_toTopOf="parent"
         app:shapeAppearanceOverlay="@style/CircleStyle"
         app:srcCompat="@drawable/vector_ic_launcher_foreground" />
@@ -31,4 +32,59 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/iv_avatar" />
+
+    <TextView
+        android:id="@+id/tv_arch"
+        style="@style/MenuItem"
+        android:layout_marginTop="20dp"
+        android:text="@string/tab_text_main_arch"
+        app:drawableStartCompat="@drawable/vector_ic_bottom_nav_main_arch"
+        app:layout_constraintTop_toBottomOf="@+id/tv_author"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/tv_components"
+        style="@style/MenuItem"
+        android:text="@string/tab_text_main_components"
+        app:drawableStartCompat="@drawable/vector_ic_bottom_nav_main_components"
+        app:layout_constraintTop_toBottomOf="@+id/tv_arch"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/tv_composable"
+        style="@style/MenuItem"
+        android:text="@string/tab_text_main_composable"
+        app:drawableStartCompat="@drawable/vector_ic_bottom_nav_main_composable"
+        app:layout_constraintTop_toBottomOf="@+id/tv_components"
+        tools:ignore="MissingConstraints" />
+
+    <com.google.android.material.divider.MaterialDivider
+        android:id="@+id/divider"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        app:dividerThickness="0.5dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:dividerColor="@color/black"
+        android:layout_marginStart="25dp"
+        android:layout_marginEnd="25dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_composable" />
+
+    <TextView
+        android:id="@+id/tv_setting"
+        style="@style/MenuItem"
+        android:layout_marginTop="10dp"
+        android:text="@string/nav_item_main_setting"
+        app:drawableStartCompat="@drawable/vector_ic_setting"
+        app:layout_constraintTop_toBottomOf="@+id/divider"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/tv_about"
+        style="@style/MenuItem"
+        android:text="@string/nav_item_main_about"
+        app:drawableStartCompat="@drawable/vector_ic_about"
+        app:layout_constraintTop_toBottomOf="@+id/tv_setting"
+        tools:ignore="MissingConstraints" />
 </androidx.constraintlayout.widget.ConstraintLayout>

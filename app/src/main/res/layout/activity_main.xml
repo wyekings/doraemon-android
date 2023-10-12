@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/drawer_layout"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -21,29 +21,29 @@
 
         <com.google.android.material.divider.MaterialDivider
             android:layout_width="match_parent"
-            app:dividerColor="#DEE0E2"
-            android:layout_height="0.5dp" />
+            android:layout_height="0.5dp"
+            app:dividerColor="#DEE0E2" />
 
         <androidx.fragment.app.FragmentContainerView
             android:id="@+id/container"
             android:layout_width="match_parent"
-            tools:name="com.wyekings.doraemon.ui.main.ComponentsFragment"
             android:layout_height="0dp"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            tools:name="com.wyekings.doraemon.ui.main.ComponentsFragment" />
 
         <com.google.android.material.divider.MaterialDivider
             android:layout_width="match_parent"
-            app:dividerColor="#DEE0E2"
-            android:layout_height="0.5dp" />
+            android:layout_height="0.5dp"
+            app:dividerColor="#DEE0E2" />
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/bottom_navigation"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:labelVisibilityMode="labeled"
+            android:background="@color/white"
             app:itemRippleColor="@null"
-            tools:menu="@menu/menu_bottom_nav_main"
-            android:background="@color/white" />
+            app:labelVisibilityMode="labeled"
+            tools:menu="@menu/menu_bottom_nav_main" />
     </androidx.appcompat.widget.LinearLayoutCompat>
 
     <com.google.android.material.navigation.NavigationView
@@ -51,9 +51,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="start"
-        app:headerLayout="@layout/drawer_main_header"
-        app:itemIconTint="@color/bottom_nav_main_tint"
-        app:itemTextColor="@color/bottom_nav_main_tint"
-        app:menu="@menu/menu_drawer_main" />
+        android:background="@color/white"
+        app:headerLayout="@layout/drawer_main_header" />
 
 </androidx.drawerlayout.widget.DrawerLayout>

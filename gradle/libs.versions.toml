@@ -31,6 +31,7 @@ landscapist = "2.2.6" # https://github.com/skydoves/landscapist
 splash-screen = "1.0.1"
 view-binding = "1.5.9" # https://github.com/androidbroadcast/ViewBindingPropertyDelegate
 navigation = "2.7.4" # https://developer.android.com/jetpack/androidx/releases/navigation
+insetter = "0.6.1"
 
 junit4 = "4.13.2"
 androidx-test-ext-junit = "1.1.5"
@@ -62,6 +63,7 @@ coil-kt-svg = { group = "io.coil-kt", name = "coil-svg", version.ref = "coil" }
 landscapist-coil = { group = "com.github.skydoves", name = "landscapist-coil", version.ref = "landscapist" }
 
 view-binding = { module = "com.github.kirich1409:viewbindingpropertydelegate-noreflection", version.ref = "view-binding" }
+insetter = { group = "dev.chrisbanes.insetter", name = "insetter", version.ref = "insetter" }
 
 
 hilt-android = { group = "com.google.dagger", name = "hilt-android", version.ref = "hilt" }

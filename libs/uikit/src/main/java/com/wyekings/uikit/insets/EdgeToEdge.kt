@@ -1,20 +1,22 @@
-package com.wyekings.uikit.insetter
+package com.wyekings.uikit.insets
 
 import android.view.View
 import android.view.View.OnAttachStateChangeListener
 import androidx.activity.ComponentActivity
-import androidx.activity.enableEdgeToEdge
 import androidx.core.graphics.Insets
 import androidx.core.view.ViewCompat
+import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
+import dev.chrisbanes.insetter.ViewState
 
 class EdgeToEdge(private val activity: ComponentActivity) {
-    fun apply(block: (insets: WindowInsetsCompat) -> Unit) {
-//        WindowCompat.setDecorFitsSystemWindows(activity.window, false)
-        activity.enableEdgeToEdge()
+    fun apply(light: Boolean = true, block: (insets: WindowInsetsCompat) -> Unit) {
+        activity.transparentSystemBar()
+        activity.applySystemBarAppearance(light)
+        WindowCompat.setDecorFitsSystemWindows(activity.window, false)
         var givenInsetsToDecorView = false
         activity.window.decorView.apply {
-            doOnApplyInsets { _, insets, _, _ ->
+            doOnApplyInsets { _, insets, _ ->
                 val navigationBarInsets = insets.getInsets(WindowInsetsCompat.Type.navigationBars())
                 val isGestureNavigation =
                     navigationBarInsets.bottom <= 24 * activity.resources.displayMetrics.density
@@ -42,11 +44,12 @@ class EdgeToEdge(private val activity: ComponentActivity) {
     }
 }
 
-fun View.doOnApplyInsets(block: (View, WindowInsetsCompat, InitialPadding, InitialMargin) -> Unit) {
+private fun View.doOnApplyInsets(block: (View, WindowInsetsCompat, ViewState) -> Unit) {
+    val initialViewState = ViewState(this)
     ViewCompat.setOnApplyWindowInsetsListener(
         this
     ) { v, insets ->
-        block.invoke(this@doOnApplyInsets, insets, initialPadding, initialMargin)
+        block.invoke(this@doOnApplyInsets, insets, initialViewState)
         insets
     }
     requestApplyInsetsWhenAttached()

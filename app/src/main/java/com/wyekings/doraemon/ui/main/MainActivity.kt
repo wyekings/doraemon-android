@@ -17,13 +17,14 @@ import com.wyekings.base.BaseActivity
 import com.wyekings.base.ext.start
 import com.wyekings.doraemon.R
 import com.wyekings.doraemon.databinding.ActivityMainBinding
-import com.wyekings.uikit.insetter.EdgeToEdge
-import com.wyekings.uikit.insetter.initialPadding
+import com.wyekings.doraemon.databinding.DrawerMainHeaderBinding
+import com.wyekings.uikit.insets.InsetterDelegate
+import com.wyekings.uikit.insets.initialMargins
+import com.wyekings.uikit.insets.updateMargins
 import com.wyekings.uikit.pager.Pager
 import com.wyekings.uikit.pager.bind
 import com.wyekings.uikit.pager.selectPager
 import dagger.hilt.android.AndroidEntryPoint
-import timber.log.Timber
 import javax.inject.Inject
 import javax.inject.Named
 
@@ -35,6 +36,9 @@ class MainActivity : BaseActivity(R.layout.activity_main) {
     lateinit var pagers: Array<Pager>
 
     private val viewBinding by viewBinding(ActivityMainBinding::bind)
+    private val headViewBinding by viewBinding {
+        DrawerMainHeaderBinding.bind(viewBinding.navView.getHeaderView(0))
+    }
     private val viewModel by viewModels<MainViewModel>()
     override fun onCreate(savedInstanceState: Bundle?) {
         val splashScreen = installSplashScreen().apply { setKeepOnScreenCondition { true } }
@@ -45,15 +49,13 @@ class MainActivity : BaseActivity(R.layout.activity_main) {
     }
 
     private fun applyEdgeToEdge() {
-        val bottomNavigationInitialPadding = viewBinding.bottomNavigation.initialPadding
-        EdgeToEdge(this).apply {
+        val avatarInitialTop = headViewBinding.ivAvatar.initialMargins.top
+        InsetterDelegate(this).apply {
             val top = it.getInsets(WindowInsetsCompat.Type.statusBars()).top
-            viewBinding.toolbar.updateLayoutParams<LinearLayoutCompat.LayoutParams> {
-                this.topMargin = top
-            }
-            // val bottom = it.getInsets(WindowInsetsCompat.Type.navigationBars()).bottom
-            // BottomNavigationView handled WindowInsets internal，so it's ok to remove the code below
-            // viewBinding.bottomNavigation.updatePadding(bottom = bottom + bottomNavigationInitialPadding.bottom)
+            viewBinding.toolbar.updateMargins(top = top)
+            headViewBinding.ivAvatar.updateMargins(top = top + avatarInitialTop)
+            val bottom = it.getInsets(WindowInsetsCompat.Type.navigationBars()).bottom
+            viewBinding.bottomNavigation.updatePadding(bottom = bottom)
         }
     }
 

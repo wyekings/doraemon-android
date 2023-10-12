@@ -13,5 +13,5 @@
     <item
         android:id="@+id/composable"
         android:icon="@drawable/vector_ic_bottom_nav_main_composable"
-        android:title="@string/tab_text_main_compose" />
+        android:title="@string/tab_text_main_composable" />
 </menu>
