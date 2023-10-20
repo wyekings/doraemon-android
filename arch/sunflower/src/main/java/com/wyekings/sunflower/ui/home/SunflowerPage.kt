@@ -5,7 +5,7 @@ import androidx.annotation.StringRes
 import com.wyekings.sunflower.R
 
 /**
- *  @author wangpt on 9/7/23
+ *  @author wye on 9/7/23
  */
 enum class SunflowerPage(
     @StringRes val titleResId: Int,

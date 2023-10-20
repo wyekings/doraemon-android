@@ -5,7 +5,7 @@ import com.wyekings.logger.logger.toAndroidPriority
 import timber.log.Timber
 
 /**
- *  @author wangpt on 6/27/23
+ *  @author wye on 6/27/23
  */
 
 inline fun Any.timber(

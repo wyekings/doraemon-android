@@ -46,12 +46,19 @@
             tools:menu="@menu/menu_bottom_nav_main" />
     </androidx.appcompat.widget.LinearLayoutCompat>
 
-    <com.google.android.material.navigation.NavigationView
-        android:id="@+id/nav_view"
+    <include
+        android:id="@+id/drawer"
+        layout="@layout/drawer_main_header"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_gravity="start"
-        android:background="@color/white"
-        app:headerLayout="@layout/drawer_main_header" />
+        android:layout_gravity="start" />
+
+    <!--    <com.google.android.material.navigation.NavigationView-->
+    <!--        android:id="@+id/nav_view"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="match_parent"-->
+    <!--        android:layout_gravity="start"-->
+    <!--        android:background="@color/white"-->
+    <!--        app:headerLayout="@layout/drawer_main_header" />-->
 
 </androidx.drawerlayout.widget.DrawerLayout>

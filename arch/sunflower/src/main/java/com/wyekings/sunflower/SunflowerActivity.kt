@@ -9,7 +9,7 @@ import com.wyekings.sunflower.ui.SunflowerApp
 import dagger.hilt.android.AndroidEntryPoint
 
 /**
- *  @author wangpt on 9/5/23
+ *  @author wye on 9/5/23
  */
 @AndroidEntryPoint
 class SunflowerActivity:BaseActivity() {

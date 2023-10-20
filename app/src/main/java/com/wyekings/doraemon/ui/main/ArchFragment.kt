@@ -24,12 +24,12 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 /**
- *  @author wangpt on 9/5/23
+ *  @author wye on 9/5/23
  */
 @AndroidEntryPoint
-class ArchFragment @Inject constructor(): BaseFragment(R.layout.fragment_arch),Pager {
+class ArchFragment @Inject constructor() : BaseFragment(R.layout.fragment_arch), Pager {
 
-    @Inject lateinit var moduleAdapter:ModuleAdapter
+    @Inject lateinit var moduleAdapter: ModuleAdapter
 
     private val viewModel by viewModels<ArchViewModel>()
     private val viewBinding by viewBinding(FragmentArchBinding::bind)
@@ -45,6 +45,7 @@ class ArchFragment @Inject constructor(): BaseFragment(R.layout.fragment_arch),P
             recyclerView.bind()
         }
     }
+
     private fun RecyclerView.bind() {
         adapter = moduleAdapter.setOnClickListener { start(it.clazz) }
         layoutManager = GridLayoutManager(requireContext(), SPAN_COUNT)
@@ -54,9 +55,7 @@ class ArchFragment @Inject constructor(): BaseFragment(R.layout.fragment_arch),P
     private fun collectUi() {
         viewLifecycleOwner.lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
-                viewModel.uiState.map { it.modules }
-                    .distinctUntilChanged()
-                    .collectLatest {
+                viewModel.uiState.map { it.modules }.distinctUntilChanged().collectLatest {
                         moduleAdapter.submitList(it)
                     }
             }

@@ -1,0 +1,4 @@
+<resources>
+    <string name="message_from">To you</string>
+    <string name="message_to">To me</string>
+</resources>

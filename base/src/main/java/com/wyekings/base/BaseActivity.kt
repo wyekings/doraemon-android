@@ -12,7 +12,7 @@ abstract class BaseActivity(@LayoutRes contentLayoutId: Int) :
     AppCompatActivity(contentLayoutId) {
     constructor() : this(0)
 
-    protected val enableEdgeToEdge: Boolean
+   protected open val enableEdgeToEdge: Boolean
         get() = true
 
     override fun onCreate(savedInstanceState: Bundle?) {

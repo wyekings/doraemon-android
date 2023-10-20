@@ -50,7 +50,7 @@ private fun View.doOnApplyInsets(block: (View, WindowInsetsCompat, ViewState) ->
         this
     ) { v, insets ->
         block.invoke(this@doOnApplyInsets, insets, initialViewState)
-        insets
+        WindowInsetsCompat.CONSUMED
     }
     requestApplyInsetsWhenAttached()
 }

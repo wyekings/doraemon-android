@@ -8,7 +8,7 @@ import dagger.hilt.android.components.ActivityComponent
 import javax.inject.Named
 
 /**
- *  @author wangpt on 9/5/23
+ *  @author wye on 9/5/23
  */
 @Module
 @InstallIn(ActivityComponent::class)

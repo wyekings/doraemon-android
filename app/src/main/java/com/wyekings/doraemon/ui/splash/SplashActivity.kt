@@ -14,7 +14,7 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 /**
- *  @author wangpt on 9/2/23
+ *  @author wye on 9/2/23
  */
 @SuppressLint("CustomSplashScreen")
 @AndroidEntryPoint

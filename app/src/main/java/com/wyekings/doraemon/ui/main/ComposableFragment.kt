@@ -24,7 +24,7 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 /**
- *  @author wangpt on 9/5/23
+ *  @author wye on 9/5/23
  */
 @AndroidEntryPoint
 class ComposableFragment @Inject constructor(): BaseFragment(R.layout.fragment_composable),Pager {
