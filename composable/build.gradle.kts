@@ -14,6 +14,7 @@ dependencies {
     implementation(project(":base"))
     implementation(project(":common"))
     implementation(project(":libs:accompanist"))
+    implementation(project(":libs:logger"))
 
     // compose
     implementation(libs.activity.ktx)
@@ -26,6 +27,7 @@ dependencies {
     debugImplementation(libs.ui.test.manifest)
 
     implementation(libs.navigation.compose)
+    implementation(libs.hilt.navigation.compose)
 
     implementation(libs.coil.kt.compose)
     implementation(libs.coil.kt.gif)

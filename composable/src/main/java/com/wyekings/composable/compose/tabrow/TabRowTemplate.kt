@@ -1,4 +1,4 @@
-package com.wyekings.composable.tabrow
+package com.wyekings.composable.compose.tabrow
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize

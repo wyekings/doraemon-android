@@ -1,4 +1,4 @@
-package com.wyekings.composable.image
+package com.wyekings.composable.compose.image
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -38,7 +38,7 @@ import com.wyekings.common.api.TestUrls
  */
 
 @Composable
-fun ImageSample() {
+fun ImageScreen() {
         Surface(modifier = Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background) {
             Column(
                 modifier = Modifier
@@ -145,5 +145,5 @@ fun CoilImageSample(modifier: Modifier) {
 @Preview(showBackground = true)
 @Composable
 private fun ImageSamplePreview() {
-    ImageSample()
+    ImageScreen()
 }
