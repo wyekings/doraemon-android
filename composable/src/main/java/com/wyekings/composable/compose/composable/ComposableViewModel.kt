@@ -1,8 +1,8 @@
-package com.wyekings.composable.compose.home
+package com.wyekings.composable.compose.composable
 
 import androidx.compose.runtime.mutableStateListOf
 import androidx.lifecycle.ViewModel
-import com.wyekings.composable.compose.home.domain.Composable
+import com.wyekings.composable.compose.composable.domain.Composable
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
@@ -12,11 +12,10 @@ data class HomeUiState(
 
 @HiltViewModel
 class HomeViewModel @Inject constructor() : ViewModel() {
-
     val composableList = mutableStateListOf(
-        Composable("Animations", "animations"),
+        Composable("Text", "text"),
         Composable("Image", "image"),
         Composable("TabRow", "tab_row"),
+        Composable("Animations", "animations"),
     )
-
 }

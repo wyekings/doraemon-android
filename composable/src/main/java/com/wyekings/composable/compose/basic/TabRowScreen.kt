@@ -1,4 +1,4 @@
-package com.wyekings.composable.compose.tabrow
+package com.wyekings.composable.compose.basic
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -19,7 +19,7 @@ import com.wyekings.composeable.tabrow.CapsuleTabRow
  */
 
 @Composable
-fun TabRowTemplate() {
+fun TabRowScreen() {
     Column(modifier = Modifier.fillMaxSize().systemBarsPadding()) {
         var selectedTabIndex by remember { mutableIntStateOf(0) }
         CapsuleTabRow(selectedTabIndex = selectedTabIndex, modifier = Modifier.padding(horizontal = 8.dp), tabs = listOf("First","Second")){
@@ -30,6 +30,6 @@ fun TabRowTemplate() {
 
 @Preview
 @Composable
-fun TabRowTemplatePreview() {
-    TabRowTemplate()
+fun TabRowScreenPreview() {
+    TabRowScreen()
 }

@@ -1,19 +1,25 @@
-package com.wyekings.composable.compose.image
+package com.wyekings.composable.compose.basic
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.lazy.grid.GridCells
+import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Divider
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -32,37 +38,58 @@ import coil.request.ImageRequest
 import com.skydoves.landscapist.ImageOptions
 import com.skydoves.landscapist.coil.CoilImage
 import com.wyekings.common.api.TestUrls
+import com.wyekings.composable.ui.TopBar
 
 /**
  *  @author wye on 8/9/23
  */
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ImageScreen() {
-        Surface(modifier = Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background) {
-            Column(
-                modifier = Modifier
-                    .background(Color.White)
-                    .verticalScroll(rememberScrollState()),
-                horizontalAlignment = Alignment.CenterHorizontally
-            ) {
-                val modifier = Modifier
-                    .padding(8.dp)
-                    .clip(RoundedCornerShape(8.dp))
-                    .size(128.dp)
+    Scaffold(
+        modifier = Modifier.fillMaxSize(),
+        topBar = {
+            TopBar(title = "Image")
+        },
+        containerColor = MaterialTheme.colorScheme.background,
+    ) {
+        val modifier = remember {
+            Modifier
+                .padding(8.dp)
+                .clip(RoundedCornerShape(8.dp))
+                .size(128.dp)
+        }
+        LazyVerticalGrid(
+            columns = GridCells.Fixed(2),
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(it),
+            horizontalArrangement = Arrangement.spacedBy(10.dp),
+            verticalArrangement = Arrangement.spacedBy(10.dp)
+        ) {
+            item {
                 SimpleImageSample(modifier)
-                Divider(thickness = 0.5.dp)
+            }
+            item {
                 AsyncImageSample(modifier)
-                Divider(thickness = 0.5.dp)
+            }
+
+            item {
                 SubcomposeAsyncImageSample(modifier)
-                Divider(thickness = 0.5.dp)
+            }
+
+            item {
                 AsyncImagePainterSample(modifier = modifier)
-                Divider(thickness = 0.5.dp)
+            }
+            item {
                 GifImageSample(modifier = modifier)
-                Divider(thickness = 0.5.dp)
+            }
+            item {
                 CoilImageSample(modifier = modifier)
             }
         }
+    }
 }
 
 @Composable
@@ -78,10 +105,8 @@ fun SimpleImageSample(modifier: Modifier) {
 fun AsyncImageSample(modifier: Modifier) {
     AsyncImage(
 //        model = ImageUrls.imageUrls[0],
-        model = ImageRequest.Builder(LocalContext.current)
-            .data(TestUrls.randomImage())
-            .crossfade(true)
-            .build(),
+        model = ImageRequest.Builder(LocalContext.current).data(TestUrls.randomImage())
+            .crossfade(true).build(),
         contentDescription = "AsyncImage",
         contentScale = ContentScale.Crop,
         placeholder = painterResource(id = com.wyekings.common.R.drawable.ic_img_placeholder),
@@ -133,12 +158,9 @@ fun GifImageSample(modifier: Modifier) {
 @Composable
 fun CoilImageSample(modifier: Modifier) {
     CoilImage(
-        imageModel = { TestUrls.randomImage() },
-        imageOptions = ImageOptions(
-            alignment = Alignment.Center,
-            contentScale = ContentScale.Crop
-        ),
-        modifier = modifier
+        imageModel = { TestUrls.randomImage() }, imageOptions = ImageOptions(
+            alignment = Alignment.Center, contentScale = ContentScale.Crop
+        ), modifier = modifier
     )
 }
 
