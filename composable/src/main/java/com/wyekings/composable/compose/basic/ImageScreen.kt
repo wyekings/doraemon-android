@@ -44,7 +44,6 @@ import com.wyekings.composable.ui.TopBar
  *  @author wye on 8/9/23
  */
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ImageScreen() {
     Scaffold(

@@ -1,5 +1,6 @@
 package com.wyekings.composable.ui
 
+import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
@@ -22,6 +23,7 @@ fun TopBar(title: String,modifier: Modifier = Modifier) {
             )
         },
         colors = TopAppBarDefaults.centerAlignedTopAppBarColors(containerColor = MaterialTheme.colorScheme.background),
-        modifier = modifier.shadow(elevation = 2.dp)
+        modifier = modifier.shadow(elevation = 2.dp),
+//        windowInsets = WindowInsets(0,0,0,0)
     )
 }

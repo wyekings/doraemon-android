@@ -15,6 +15,7 @@ class HomeViewModel @Inject constructor() : ViewModel() {
     val composableList = mutableStateListOf(
         Composable("Text", "text"),
         Composable("Image", "image"),
+        Composable("Button", "button"),
         Composable("TabRow", "tab_row"),
         Composable("Animations", "animations"),
     )

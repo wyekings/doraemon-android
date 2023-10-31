@@ -10,5 +10,5 @@ data object NoRippleTheme : RippleTheme {
     override fun defaultColor(): Color = Color.Unspecified
 
     @Composable
-    override fun rippleAlpha(): RippleAlpha = RippleAlpha(0.0f, 0.0f, 0.0f, 0.0f)
+    override fun rippleAlpha(): RippleAlpha = RippleAlpha(0f, 0f, 0f, 0f)
 }

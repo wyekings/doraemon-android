@@ -23,6 +23,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.wyekings.composable.ui.TopBar
+import com.wyekings.composeable.layout.Center
 
 @Composable
 fun ComposableScreen(
@@ -53,7 +54,7 @@ fun ComposableScreen(
                     colors = CardDefaults.cardColors(containerColor = Color.LightGray),
 //                    shape = RectangleShape,
                 ) {
-                    Box(contentAlignment = Alignment.Center, modifier = Modifier.fillMaxSize()) {
+                    Center(modifier = Modifier.fillMaxSize()) {
                         Text(
                             text = it.name,
                             textAlign = TextAlign.Center,

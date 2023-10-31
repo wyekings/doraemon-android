@@ -20,7 +20,7 @@ class NoRippleInteractionSource : MutableInteractionSource {
 }
 
 @Composable
-fun rememberNoRippleInteractionSource():MutableInteractionSource {
+fun rememberNoRippleInteractionSource(): MutableInteractionSource {
     return remember {
         NoRippleInteractionSource()
     }
