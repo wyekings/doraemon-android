@@ -17,6 +17,6 @@ class HomeViewModel @Inject constructor() : ViewModel() {
         Composable("Image", "image"),
         Composable("Button", "button"),
         Composable("TabRow", "tab_row"),
-        Composable("Animations", "animations"),
+        Composable("Animatable", "animatable"),
     )
 }
