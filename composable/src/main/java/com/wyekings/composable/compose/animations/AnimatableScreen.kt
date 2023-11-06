@@ -15,7 +15,6 @@ import androidx.compose.animation.core.repeatable
 import androidx.compose.animation.core.snap
 import androidx.compose.animation.core.spring
 import androidx.compose.animation.core.tween
-import androidx.compose.animation.rememberSplineBasedDecay
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
@@ -47,7 +46,6 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.wyekings.composable.ui.TopBar
-import kotlinx.coroutines.delay
 import timber.log.Timber
 
 @Composable
@@ -58,7 +56,7 @@ fun AnimatableScreen() {
 
     Scaffold(
         topBar = {
-            TopBar { type, spec ->
+            AnimatableTopBar { type, spec ->
                 animateType = type
                 animationSpec = spec
             }
@@ -101,11 +99,15 @@ fun AnimatableScreen() {
 
             var decay by remember { mutableStateOf(false) }
             val decayAnim = remember { Animatable(initialValue = 0.dp, Dp.VectorConverter) }
-            val a = rememberSplineBasedDecay<Float>()
+            var padding by remember {
+                mutableStateOf(decayAnim.value)
+            }
             val decaySpec = remember { exponentialDecay<Dp>() }
             LaunchedEffect(decay) {
 //                decayAnim.snapTo(0.dp)
-                decayAnim.animateDecay(initialVelocity = 1000.dp, decaySpec)
+           val result =      decayAnim.animateDecay(initialVelocity = 1000.dp, decaySpec) {
+                    padding = decayAnim.value
+                }
             }
             Timber.d("decayValue=${decayAnim.value}")
             Box(
@@ -121,6 +123,20 @@ fun AnimatableScreen() {
             ) {
                 Text(text = "Decay", fontSize = 13.sp, color = Color.White)
             }
+
+            Box(
+                modifier = Modifier
+                    .padding(top = padding)
+                    .background(Color(0xFF6200EE))
+                    .size(56.dp)
+                    .align(Alignment.TopStart)
+                    .clickable {
+                        decay = !decay
+                    },
+                contentAlignment = Alignment.Center,
+            ) {
+                Text(text = "Follow", fontSize = 13.sp, color = Color.White)
+            }
         }
     }
 }
@@ -135,7 +151,9 @@ private fun BoxScope.BoomAnimation() {
                 dampingRatio = Spring.DampingRatioHighBouncy,
                 stiffness = Spring.StiffnessMedium,
             ), initialVelocity = 1000.dp
-        )
+        ) {
+            // block will be invoked on each animation frame.
+        }
     }
 
     Box(
@@ -153,7 +171,7 @@ private fun BoxScope.BoomAnimation() {
 }
 
 @Composable
-private fun TopBar(onSelect: (String, AnimationSpec<Dp>) -> Unit) {
+private fun AnimatableTopBar(onSelect: (String, AnimationSpec<Dp>) -> Unit) {
     var showDropdownMenu by remember { mutableStateOf(false) }
     TopBar(title = "Animatable", actions = {
         IconButton(onClick = { showDropdownMenu = !showDropdownMenu }) {

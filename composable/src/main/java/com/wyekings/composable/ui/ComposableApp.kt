@@ -6,6 +6,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.wyekings.composable.compose.animations.AnimatableScreen
+import com.wyekings.composable.compose.animations.BounceScreen
 import com.wyekings.composable.compose.basic.ButtonScreen
 import com.wyekings.composable.compose.basic.ImageScreen
 import com.wyekings.composable.compose.basic.TabRowScreen
@@ -41,6 +42,9 @@ fun ComposableNavHost(navController: NavHostController) {
         }
         composable("animatable") {
             AnimatableScreen()
+        }
+        composable("bounce") {
+            BounceScreen()
         }
     }
 }
