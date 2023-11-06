@@ -19,5 +19,7 @@ class HomeViewModel @Inject constructor() : ViewModel() {
         Composable("TabRow", "tab_row"),
         Composable("Animatable", "animatable"),
         Composable("Bounce", "bounce"),
+        Composable("Transition", "transition"),
+        Composable("AnimatedVisibility", "animatedVisibility"),
     )
 }
