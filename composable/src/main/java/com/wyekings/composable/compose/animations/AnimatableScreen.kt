@@ -72,7 +72,9 @@ fun AnimatableScreen() {
             val target = if (big) 256.dp else 96.dp
             val margin by animateDpAsState(
                 targetValue = target, label = "animation1", animationSpec = animationSpec
-            )
+            ) {
+                Timber.d("finished=$it")
+            }
 
             Box(
                 modifier = Modifier
@@ -105,11 +107,11 @@ fun AnimatableScreen() {
             val decaySpec = remember { exponentialDecay<Dp>() }
             LaunchedEffect(decay) {
 //                decayAnim.snapTo(0.dp)
-           val result =      decayAnim.animateDecay(initialVelocity = 1000.dp, decaySpec) {
+                val result = decayAnim.animateDecay(initialVelocity = 1000.dp, decaySpec) {
                     padding = decayAnim.value
                 }
             }
-            Timber.d("decayValue=${decayAnim.value}")
+//            Timber.d("decayValue=${decayAnim.value}")
             Box(
                 modifier = Modifier
                     .padding(top = decayAnim.value)
@@ -153,6 +155,7 @@ private fun BoxScope.BoomAnimation() {
             ), initialVelocity = 1000.dp
         ) {
             // block will be invoked on each animation frame.
+            Timber.d("boom=${this.value}")
         }
     }
 
