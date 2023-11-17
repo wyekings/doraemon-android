@@ -3,9 +3,12 @@
 
     <application>
         <activity
-            android:name=".ui.insets.WindowInsetsActivity"
-            android:windowSoftInputMode="adjustResize"
+            android:name=".ui.customview.CustomViewActivity"
             android:exported="false" />
+        <activity
+            android:name=".ui.insets.WindowInsetsActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
     </application>
 
 </manifest>

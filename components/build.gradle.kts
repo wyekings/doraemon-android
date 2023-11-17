@@ -2,6 +2,7 @@
 plugins {
     id("doraemon.android.library")
     id("doraemon.android.hilt")
+    alias(libs.plugins.kotlinAndroid)
 }
 
 android {

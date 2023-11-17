@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/material_white"
+    android:background="@color/white"
     android:orientation="vertical"
     tools:context=".ui.insets.WindowInsetsActivity"
     tools:theme="@style/Theme.Material3.Light.NoActionBar">
@@ -13,7 +13,7 @@
         android:id="@+id/top_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/material_white"
+        android:background="@color/white"
         android:elevation="4dp">
 
         <com.google.android.material.appbar.MaterialToolbar
