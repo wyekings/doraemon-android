@@ -21,6 +21,7 @@
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tab_layout"
         android:layout_width="0dp"
+        app:tabMode="scrollable"
         android:layout_height="48dp"
         android:background="@color/white"
         app:layout_constraintEnd_toEndOf="parent"

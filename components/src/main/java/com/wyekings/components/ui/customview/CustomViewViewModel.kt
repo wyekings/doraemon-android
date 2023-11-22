@@ -1,8 +1,14 @@
 package com.wyekings.components.ui.customview
 
 import androidx.lifecycle.ViewModel
-import com.wyekings.components.ui.customview.view.CustomView
+import com.wyekings.components.ui.customview.view.DrawArcView
+import com.wyekings.components.ui.customview.view.DrawCircleView
 import com.wyekings.components.ui.customview.view.DrawColorView
+import com.wyekings.components.ui.customview.view.DrawLinesView
+import com.wyekings.components.ui.customview.view.DrawOvalView
+import com.wyekings.components.ui.customview.view.DrawPathView
+import com.wyekings.components.ui.customview.view.DrawPointsView
+import com.wyekings.components.ui.customview.view.DrawRoundRectView
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
@@ -10,6 +16,14 @@ import javax.inject.Inject
 class CustomViewViewModel @Inject constructor() : ViewModel() {
     val tabModels = arrayListOf(
         TabModel("draColor", DrawColorView::class.java),
-        TabModel("drawCircle", CustomView::class.java),
-    )
+        TabModel("drawCircle", DrawCircleView::class.java),
+        TabModel("drawPoints", DrawPointsView::class.java),
+        TabModel("drawOval", DrawOvalView::class.java),
+        TabModel("drawLines", DrawLinesView::class.java),
+        TabModel("drawRoundRect", DrawRoundRectView::class.java),
+        TabModel("drawArc", DrawArcView::class.java),
+        TabModel("drawPath", DrawPathView::class.java),
+    ).apply {
+        reverse()
+    }
 }

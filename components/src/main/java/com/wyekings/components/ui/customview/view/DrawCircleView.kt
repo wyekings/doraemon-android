@@ -7,7 +7,7 @@ import android.graphics.Paint
 import android.util.AttributeSet
 import android.view.View
 
-class CustomView @JvmOverloads constructor(
+class DrawCircleView @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
     defStyleAttr: Int = 0,
@@ -20,6 +20,15 @@ class CustomView @JvmOverloads constructor(
 
     override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
+//        canvas.drawPoints()
         canvas.drawCircle(200f, 200f, 100f, paint)
+
+        paint.setColor(Color.RED)
+        canvas.drawCircle(600f, 200f, 100f, paint)
+
+        paint.setColor(Color.BLACK)
+        paint.style = Paint.Style.STROKE
+        paint.strokeWidth = 20f
+        canvas.drawCircle(200f, 600f, 100f, paint)
     }
 }
