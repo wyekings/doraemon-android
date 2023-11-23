@@ -26,7 +26,7 @@ class DrawArcView @JvmOverloads constructor(
         canvas.drawArc(50.dp, 50.dp, 150.dp, 100.dp, 0f, 360f, true, paint)
 
         paint.style = Paint.Style.STROKE
-        canvas.drawArc(50.dp, 120.dp, 150.dp, 170.dp, 0f, 360f, true, paint)
+        canvas.drawArc(150.dp, 50.dp, 200.dp, 170.dp, 0f, 360f, true, paint)
 
         paint.style = Paint.Style.FILL
         canvas.drawArc(50.dp, 190.dp, 150.dp, 240.dp, -110f, 100f, true, paint)

@@ -7,6 +7,7 @@ import com.wyekings.components.ui.customview.view.DrawColorView
 import com.wyekings.components.ui.customview.view.DrawLinesView
 import com.wyekings.components.ui.customview.view.DrawOvalView
 import com.wyekings.components.ui.customview.view.DrawPathView
+import com.wyekings.components.ui.customview.view.DrawPieChartView
 import com.wyekings.components.ui.customview.view.DrawPointsView
 import com.wyekings.components.ui.customview.view.DrawRectView
 import com.wyekings.components.ui.customview.view.DrawRoundRectView
@@ -25,6 +26,7 @@ class CustomViewViewModel @Inject constructor() : ViewModel() {
         TabModel("drawArc", DrawArcView::class.java),
         TabModel("drawPath", DrawPathView::class.java),
         TabModel("drawRect", DrawRectView::class.java),
+        TabModel("drawPieChart", DrawPieChartView::class.java),
     ).apply {
         reverse()
     }
