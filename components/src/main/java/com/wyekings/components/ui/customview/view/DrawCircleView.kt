@@ -6,6 +6,7 @@ import android.graphics.Color
 import android.graphics.Paint
 import android.util.AttributeSet
 import android.view.View
+import com.wyekings.uikit.extensions.dp
 
 class DrawCircleView @JvmOverloads constructor(
     context: Context,
@@ -20,7 +21,6 @@ class DrawCircleView @JvmOverloads constructor(
 
     override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
-//        canvas.drawPoints()
         canvas.drawCircle(200f, 200f, 100f, paint)
 
         paint.setColor(Color.RED)
@@ -30,5 +30,10 @@ class DrawCircleView @JvmOverloads constructor(
         paint.style = Paint.Style.STROKE
         paint.strokeWidth = 20f
         canvas.drawCircle(200f, 600f, 100f, paint)
+
+        paint.setColor(Color.BLACK)
+        paint.style = Paint.Style.STROKE
+        paint.strokeWidth = 20.dp
+        canvas.drawCircle(600f, 600f, 100f, paint)
     }
 }

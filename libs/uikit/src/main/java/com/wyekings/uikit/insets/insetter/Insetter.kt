@@ -33,7 +33,6 @@ import androidx.core.view.doOnAttach
 import com.wyekings.uikit.R
 import com.wyekings.uikit.insets.insetter.Insetter.Builder
 import dev.chrisbanes.insetter.OnApplyInsetsListener
-import dev.chrisbanes.insetter.ViewDimensions
 import dev.chrisbanes.insetter.ViewState
 import timber.log.Timber
 

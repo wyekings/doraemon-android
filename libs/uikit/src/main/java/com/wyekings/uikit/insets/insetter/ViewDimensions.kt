@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package dev.chrisbanes.insetter
+package com.wyekings.uikit.insets.insetter
 
 import androidx.annotation.Px
 

@@ -6,7 +6,7 @@ import android.graphics.Color
 import android.graphics.Paint
 import android.util.AttributeSet
 import android.view.View
-import com.wyekings.uikit.extensions.px
+import com.wyekings.uikit.extensions.dp
 
 class DrawArcView @JvmOverloads constructor(
     context: Context,
@@ -23,16 +23,16 @@ class DrawArcView @JvmOverloads constructor(
         super.onDraw(canvas)
 
         paint.style = Paint.Style.FILL
-        canvas.drawArc(50.px, 50.px, 150.px, 100.px, 0f, 360f, true, paint)
+        canvas.drawArc(50.dp, 50.dp, 150.dp, 100.dp, 0f, 360f, true, paint)
 
         paint.style = Paint.Style.STROKE
-        canvas.drawArc(50.px, 120.px, 150.px, 170.px, 0f, 360f, true, paint)
+        canvas.drawArc(50.dp, 120.dp, 150.dp, 170.dp, 0f, 360f, true, paint)
 
         paint.style = Paint.Style.FILL
-        canvas.drawArc(50.px, 190.px, 150.px, 240.px, -110f, 100f, true, paint)
+        canvas.drawArc(50.dp, 190.dp, 150.dp, 240.dp, -110f, 100f, true, paint)
         paint.style = Paint.Style.FILL
-        canvas.drawArc(50.px, 190.px, 150.px, 240.px, 20f, 140f, false, paint)
+        canvas.drawArc(50.dp, 190.dp, 150.dp, 240.dp, 20f, 140f, false, paint)
         paint.style = Paint.Style.STROKE
-        canvas.drawArc(50.px, 190.px, 150.px, 240.px, 180f, 60f, false, paint)
+        canvas.drawArc(50.dp, 190.dp, 150.dp, 240.dp, 180f, 60f, false, paint)
     }
 }

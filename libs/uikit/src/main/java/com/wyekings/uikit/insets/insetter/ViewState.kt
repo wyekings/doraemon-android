@@ -18,6 +18,7 @@ package dev.chrisbanes.insetter
 
 import android.view.View
 import android.view.ViewGroup.MarginLayoutParams
+import com.wyekings.uikit.insets.insetter.ViewDimensions
 
 /**
  * A class which models and stores the state of some of a view's layout.

@@ -7,7 +7,12 @@ import android.util.TypedValue
 /**
  * dp to px
  */
-val Number.px: Float
+val Number.dp: Float
     get() = TypedValue.applyDimension(
         TypedValue.COMPLEX_UNIT_DIP, toFloat(), Resources.getSystem().displayMetrics
+    )
+
+val Number.sp: Float
+    get() = TypedValue.applyDimension(
+        TypedValue.COMPLEX_UNIT_SP, toFloat(), Resources.getSystem().displayMetrics
     )
