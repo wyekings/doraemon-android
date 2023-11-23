@@ -14,7 +14,6 @@ import com.wyekings.uikit.extensions.dp
 import com.wyekings.uikit.extensions.draw
 import com.wyekings.uikit.extensions.sp
 import kotlin.math.cos
-import kotlin.math.sign
 import kotlin.math.sin
 
 class DrawPieChartView @JvmOverloads constructor(
@@ -53,7 +52,6 @@ class DrawPieChartView @JvmOverloads constructor(
         val centerY = height / 2f
 
         percentages.forEachIndexed { index, percentage ->
-            paint.color = percentage.color
             startAngle += sweepAngle
             sweepAngle = percentage.percent.toFloat() / total * 360
             val selected = index == 0
@@ -74,24 +72,34 @@ class DrawPieChartView @JvmOverloads constructor(
                 bottom = y + radius
             }
             canvas.draw {
+                paint.style = Paint.Style.FILL
+                paint.color = percentage.color
                 drawArc(rectF, startAngle, sweepAngle, true, paint)
             }
 
-//            val lineX: Float = centerX + radius * cos(midAngle * Math.PI / 180).toFloat()
-//            val lingY: Float = centerY + radius * sin(midAngle * Math.PI / 180).toFloat()
-//            val turningX: Float =
-//                centerX + (radius + 20.dp) * cos(midAngle * Math.PI / 180).toFloat()
-//            val turningY: Float =
-//                centerY + (radius + 20.dp) * sin(midAngle * Math.PI / 180).toFloat()
-//            canvas.draw {
-//                paint.style = Paint.Style.STROKE
-//                paint.color = Color.LTGRAY
-//                paint.strokeWidth = 1.dp
-//                path.moveTo(lineX, lingY)
-//                path.lineTo(turningX, turningY)
-//                path.lineTo(turningX + 30.dp, turningY)
-//                drawPath(path, paint)
-//            }
+            val lineX: Float = x + radius * cos(midAngle * Math.PI / 180).toFloat()
+            val lingY: Float = y + radius * sin(midAngle * Math.PI / 180).toFloat()
+            val turningX: Float = x + (radius + 20.dp) * cos(midAngle * Math.PI / 180).toFloat()
+            val turningY: Float = y + (radius + 20.dp) * sin(midAngle * Math.PI / 180).toFloat()
+            val offsetX = if (lineX > x) 40.dp else (-40).dp
+            canvas.draw {
+                paint.style = Paint.Style.STROKE
+                paint.color = Color.LTGRAY
+                paint.strokeWidth = 1.dp
+                path.moveTo(lineX, lingY)
+                path.lineTo(turningX, turningY)
+                path.lineTo(turningX + offsetX, turningY)
+                drawPath(path, paint)
+            }
+
+            val textX = turningX + offsetX / 2
+            canvas.draw {
+                paint.textAlign = Align.CENTER
+                paint.textSize = 10.sp
+                paint.color = Color.BLACK
+                paint.isFakeBoldText = false
+                drawText(percentage.name, textX, turningY - 10.dp, paint)
+            }
         }
     }
 
