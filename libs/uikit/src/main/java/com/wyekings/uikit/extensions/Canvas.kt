@@ -7,3 +7,9 @@ inline fun Canvas.draw(block: Canvas.() -> Unit) {
     block()
     restore()
 }
+
+inline fun Canvas.saveLayer(block: Canvas.() -> Unit) {
+    val saved = saveLayer(null, null)
+    block()
+    restoreToCount(saved)
+}
