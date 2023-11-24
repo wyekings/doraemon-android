@@ -11,6 +11,7 @@ import com.wyekings.components.ui.customview.view.DrawPieChartView
 import com.wyekings.components.ui.customview.view.DrawPointsView
 import com.wyekings.components.ui.customview.view.DrawRectView
 import com.wyekings.components.ui.customview.view.DrawRoundRectView
+import com.wyekings.components.ui.customview.view.PaintShaderView
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
@@ -27,6 +28,7 @@ class CustomViewViewModel @Inject constructor() : ViewModel() {
         TabModel("drawPath", DrawPathView::class.java),
         TabModel("drawRect", DrawRectView::class.java),
         TabModel("drawPieChart", DrawPieChartView::class.java),
+        TabModel("PaintShader", PaintShaderView::class.java),
     ).apply {
         reverse()
     }
