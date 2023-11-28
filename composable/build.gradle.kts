@@ -21,6 +21,7 @@ dependencies {
 //    implementation(libs.activity.compose)
     implementation(libs.material3)
     implementation(libs.ui.tooling.preview)
+    implementation(libs.compose.animation.graphics)
 
     androidTestImplementation(libs.ui.test.junit4)
     debugImplementation(libs.ui.tooling)

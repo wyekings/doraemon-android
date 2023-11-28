@@ -22,5 +22,6 @@ class HomeViewModel @Inject constructor() : ViewModel() {
         Composable("Transition", "transition"),
         Composable("AnimatedVisibility", "animatedVisibility"),
         Composable("Animation", "animation"),
+        Composable("Modifier", "modifier"),
     )
 }

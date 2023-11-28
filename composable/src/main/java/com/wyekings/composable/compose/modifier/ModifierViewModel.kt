@@ -1,4 +1,4 @@
-package com.wyekings.composable.compose.animations
+package com.wyekings.composable.compose.modifier
 
 import androidx.lifecycle.ViewModel
 import com.wyekings.composable.compose.animations.pages.AnimateAppearingDisappearingPage
@@ -11,22 +11,14 @@ import com.wyekings.composable.compose.animations.pages.AnimateTextPage
 import com.wyekings.composable.compose.animations.pages.AnimateVectorPage
 import com.wyekings.composable.compose.animations.pages.AnimationPage
 import com.wyekings.composable.compose.animations.pages.RepeatAnimationPage
+import com.wyekings.composable.compose.modifier.pages.ComposedPage
 import com.wyekings.composable.ui.Page
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
 @HiltViewModel
-class AnimationViewModel @Inject constructor() : ViewModel() {
+class ModifierViewModel @Inject constructor() : ViewModel() {
     val pages = listOf(
-        Page(title = "Appear/Disappear", content = { AnimateAppearingDisappearingPage() }),
-        Page(title = "AnimateBackground", content = { AnimateBackgroundPage() }),
-        Page(title = "AnimateSize", content = { AnimateSizePage() }),
-        Page(title = "AnimatePosition", content = { AnimatePositionPage() }),
-        Page(title = "AnimateElevation", content = { AnimateElevationPage() }),
-        Page(title = "AnimateText", content = { AnimateTextPage() }),
-        Page(title = "AnimateContent", content = { AnimateContentPage() }),
-        Page(title = "RepeatAnimation", content = { RepeatAnimationPage() }),
-        Page(title = "Animation", content = { AnimationPage() }),
-        Page(title = "AnimateVector", content = { AnimateVectorPage() }),
+        Page(title = "Composed", content = { ComposedPage() }),
     ).reversed()
 }
