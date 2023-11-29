@@ -48,7 +48,7 @@ fun TabPager(pages: List<Page>, modifier: Modifier = Modifier) {
                     modifier = Modifier
                         .tabIndicatorOffset(tabPositions[state.currentPage])
                         .clip(RoundedCornerShape(8.dp))
-                        .padding(start = 60.dp, end = 60.dp, bottom = 10.dp),
+                        .padding(start = 30.dp, end = 30.dp, bottom = 10.dp),
                     height = 2.0.dp,
                     color = Color.Black
                 )
