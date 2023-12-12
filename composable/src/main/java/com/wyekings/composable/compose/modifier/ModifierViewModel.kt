@@ -4,6 +4,7 @@ import androidx.lifecycle.ViewModel
 import com.wyekings.composable.compose.modifier.pages.ComposedModifierPage
 import com.wyekings.composable.compose.modifier.pages.DrawModifierPage
 import com.wyekings.composable.compose.modifier.pages.LayoutModifierPage
+import com.wyekings.composable.compose.modifier.pages.ParentDataModifierPage
 import com.wyekings.composable.compose.modifier.pages.PointerInputModifierPage
 import com.wyekings.composable.ui.Page
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -16,5 +17,6 @@ class ModifierViewModel @Inject constructor() : ViewModel() {
         Page(title = "LayoutModifier", content = { LayoutModifierPage() }),
         Page(title = "DrawModifier", content = { DrawModifierPage() }),
         Page(title = "PointerInputModifier", content = { PointerInputModifierPage() }),
+        Page(title = "ParentDataModifier", content = { ParentDataModifierPage() }),
     ).reversed()
 }
