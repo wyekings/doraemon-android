@@ -2,7 +2,9 @@ package com.wyekings.composable.compose.modifier
 
 import androidx.lifecycle.ViewModel
 import com.wyekings.composable.compose.modifier.pages.ComposedModifierPage
+import com.wyekings.composable.compose.modifier.pages.DrawModifierPage
 import com.wyekings.composable.compose.modifier.pages.LayoutModifierPage
+import com.wyekings.composable.compose.modifier.pages.PointerInputModifierPage
 import com.wyekings.composable.ui.Page
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
@@ -12,5 +14,7 @@ class ModifierViewModel @Inject constructor() : ViewModel() {
     val pages = listOf(
         Page(title = "ComposedModifier", content = { ComposedModifierPage() }),
         Page(title = "LayoutModifier", content = { LayoutModifierPage() }),
+        Page(title = "DrawModifier", content = { DrawModifierPage() }),
+        Page(title = "PointerInputModifier", content = { PointerInputModifierPage() }),
     ).reversed()
 }
