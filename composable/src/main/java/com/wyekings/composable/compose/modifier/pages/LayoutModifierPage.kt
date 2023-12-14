@@ -4,6 +4,7 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
@@ -16,7 +17,9 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collection.MutableVector
 import androidx.compose.ui.Alignment
+import androidx.compose.ui.CombinedModifier
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
@@ -93,14 +96,13 @@ fun LayoutModifierPage() {
                 .background(Color.Yellow),
             contentAlignment = Alignment.Center,
         ) {
-            Text(text = "2")
+            Text(text = "2",Modifier.matchParentSize())
         }
 
-        Spacer(modifier = Modifier.height(5.dp))
+        Spacer(modifier = Modifier.height(30.dp))
 
         Box(
             modifier = Modifier
-                .clip(RectangleShape)
                 .size(20.dp)
                 .requiredSize(40.dp)
                 .background(Color.Yellow),
@@ -109,7 +111,7 @@ fun LayoutModifierPage() {
             Text(text = "3")
         }
 
-        Spacer(modifier = Modifier.height(5.dp))
+        Spacer(modifier = Modifier.height(30.dp))
         Box(
             modifier = Modifier
                 .requiredSize(40.dp)
@@ -122,13 +124,15 @@ fun LayoutModifierPage() {
 
         Spacer(modifier = Modifier.height(5.dp))
 
-        Box(modifier = Modifier.size(50.dp)) {
+        Box(modifier = Modifier
+            .size(50.dp)
+            .background(Color.Blue)) {
             Box(
                 modifier = Modifier
                     .background(Color.Red)
                     .fillMaxSize()
-                    .wrapContentSize()
-                    .size(20.dp)
+                    .wrapContentSize(unbounded = false)
+                    .size(100.dp)
                     .background(Color.Yellow),
                 contentAlignment = Alignment.Center,
             ) {
@@ -151,6 +155,14 @@ fun LayoutModifierPage() {
         }
 
         Spacer(modifier = Modifier.height(5.dp))
+
+        Box(
+            modifier = Modifier
+                .background(Color.Red)
+                .padding(10.dp)
+                .background(Color.Yellow)
+                .size(10.dp)
+        )
 
         Text(
             text = "7",

@@ -1,9 +1,11 @@
 package com.wyekings.composable.compose.modifier
 
+import androidx.compose.ui.layout.OnRemeasuredModifier
 import androidx.lifecycle.ViewModel
 import com.wyekings.composable.compose.modifier.pages.ComposedModifierPage
 import com.wyekings.composable.compose.modifier.pages.DrawModifierPage
 import com.wyekings.composable.compose.modifier.pages.LayoutModifierPage
+import com.wyekings.composable.compose.modifier.pages.OnRemeasuredModifierPage
 import com.wyekings.composable.compose.modifier.pages.ParentDataModifierPage
 import com.wyekings.composable.compose.modifier.pages.PointerInputModifierPage
 import com.wyekings.composable.compose.modifier.pages.SemanticsModifierPage
@@ -20,5 +22,6 @@ class ModifierViewModel @Inject constructor() : ViewModel() {
         Page(title = "PointerInputModifier", content = { PointerInputModifierPage() }),
         Page(title = "ParentDataModifier", content = { ParentDataModifierPage() }),
         Page(title = "SemanticsModifier", content = { SemanticsModifierPage() }),
+        Page(title = "OnRemeasuredModifier", content = { OnRemeasuredModifierPage() }),
     ).reversed()
 }
