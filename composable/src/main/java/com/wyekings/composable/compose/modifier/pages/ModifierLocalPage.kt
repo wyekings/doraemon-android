@@ -69,50 +69,49 @@ private fun Sample6() {
     val sizeModifierLocal = remember {
         modifierLocalOf { intArrayOf(0, 0) }
     }
-    Box(
-        modifier = Modifier
-            .then(object : LayoutModifier, ModifierLocalProvider<IntArray> {
+    Box(modifier = Modifier
+        .then(object : LayoutModifier, ModifierLocalProvider<IntArray> {
 
-                private val size = intArrayOf(0, 0)
+            private val size = intArrayOf(0, 0)
 
-                override fun MeasureScope.measure(
-                    measurable: Measurable, constraints: Constraints
-                ): MeasureResult {
-                    val placeable = measurable.measure(constraints = constraints)
-                    size[0] = placeable.width
-                    size[1] = placeable.height
-                    return layout(placeable.width, placeable.height) {
-                        placeable.placeRelative(0, 0)
-                    }
+            override fun MeasureScope.measure(
+                measurable: Measurable, constraints: Constraints
+            ): MeasureResult {
+                val placeable = measurable.measure(constraints = constraints)
+                size[0] = placeable.width
+                size[1] = placeable.height
+                return layout(placeable.width, placeable.height) {
+                    placeable.placeRelative(0, 0)
                 }
+            }
 
-                override val key: ProvidableModifierLocal<IntArray>
-                    get() = sizeModifierLocal
-                override val value: IntArray
-                    get() = size
-            })
-            .then(object : LayoutModifier, ModifierLocalConsumer {
+            override val key: ProvidableModifierLocal<IntArray>
+                get() = sizeModifierLocal
+            override val value: IntArray
+                get() = size
+        })
+        .then(object : LayoutModifier, ModifierLocalConsumer {
 
-                private lateinit var size: IntArray
+            private lateinit var size: IntArray
 
-                override fun MeasureScope.measure(
-                    measurable: Measurable, constraints: Constraints
-                ): MeasureResult {
-                    val placeable = measurable.measure(constraints = constraints)
-                    Timber.d("width=${size[0]} height=${size[1]}")
-                    return layout(placeable.width, placeable.height) {
-                        placeable.placeRelative(0, 0)
-                    }
+            override fun MeasureScope.measure(
+                measurable: Measurable, constraints: Constraints
+            ): MeasureResult {
+                val placeable = measurable.measure(constraints = constraints)
+                Timber.d("width=${size[0]} height=${size[1]}")
+                return layout(placeable.width, placeable.height) {
+                    placeable.placeRelative(0, 0)
                 }
+            }
 
-                override fun onModifierLocalsUpdated(scope: ModifierLocalReadScope) {
-                    with(scope) {
-                        size = sizeModifierLocal.current
-                    }
+            override fun onModifierLocalsUpdated(scope: ModifierLocalReadScope) {
+                with(scope) {
+                    size = sizeModifierLocal.current
                 }
-            })
-            .background(Color.Yellow)
-            .size(50.dp)
+            }
+        })
+        .background(Color.Yellow)
+        .size(50.dp)
     )
 }
 
@@ -120,7 +119,13 @@ private fun Sample6() {
 @OptIn(ExperimentalComposeUiApi::class)
 private fun Sample5() {
     val modifierLocal = remember {
-        modifierLocalOf<Sender> { error("No sender provided by parent.") }
+        modifierLocalOf<Sender> {
+            // default value
+            Sender {
+                Timber.d("NoSender provided by parent")
+            }
+//            error("No sender provided by parent.")
+        }
     }
 
     val context = LocalContext.current
@@ -182,8 +187,12 @@ private fun Sample4() {
 @Composable
 @OptIn(ExperimentalComposeUiApi::class)
 private fun Sample3() {
-    val senderModifierLocal =
-        remember { modifierLocalOf<Sender> { error("No sender provided by parent.") } }
+    val senderModifierLocal = modifierLocalOf<Sender> {
+//        error("No sender provided by parent.")
+        Sender {
+            Timber.d("NoSender provided by parent")
+        }
+    }
     val context = LocalContext.current
 
     Box(modifier = Modifier

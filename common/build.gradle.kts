@@ -18,7 +18,7 @@ dependencies {
 
     // compose
     implementation(libs.activity.ktx)
-    implementation(libs.material3)
+    implementation(libs.material.compose)
     implementation(libs.ui.tooling.preview)
 
     androidTestImplementation(libs.ui.test.junit4)

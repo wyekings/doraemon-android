@@ -19,7 +19,7 @@ dependencies {
     // compose
     implementation(libs.activity.ktx)
 //    implementation(libs.activity.compose)
-    implementation(libs.material3)
+    implementation(libs.material.compose)
     implementation(libs.ui.tooling.preview)
     implementation(libs.compose.animation.graphics)
 

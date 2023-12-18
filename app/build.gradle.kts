@@ -72,7 +72,7 @@ dependencies {
 
     // compose
     implementation(libs.activity.compose)
-    implementation(libs.material3)
+    implementation(libs.material.compose)
     implementation(libs.ui.tooling.preview)
 //    implementation(libs.ui)
 //    implementation(libs.ui.graphics)
