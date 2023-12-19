@@ -22,13 +22,14 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
+import com.wyekings.composable.ui.ComposableViewModel
+import com.wyekings.composable.ui.Route
 import com.wyekings.composable.ui.TopBar
 import com.wyekings.composeable.layout.Center
 
 @Composable
 fun ComposableScreen(
-    viewModel: HomeViewModel = hiltViewModel(),
-    onSelect: (com.wyekings.composable.compose.composable.domain.Composable) -> Unit
+    viewModel: ComposableViewModel = hiltViewModel(), onSelect: (Route) -> Unit
 ) {
     Scaffold(
         topBar = {
@@ -42,7 +43,7 @@ fun ComposableScreen(
             horizontalArrangement = Arrangement.spacedBy(10.dp),
             verticalArrangement = Arrangement.spacedBy(10.dp),
         ) {
-            items(viewModel.composableList, key = { it.route }) {
+            items(viewModel.composables, key = { it.route }) {
                 Card(
                     modifier = Modifier
                         .fillMaxSize()
@@ -56,7 +57,7 @@ fun ComposableScreen(
                 ) {
                     Center(modifier = Modifier.fillMaxSize()) {
                         Text(
-                            text = it.name,
+                            text = it.route,
                             textAlign = TextAlign.Center,
                         )
                     }
