@@ -1,6 +1,7 @@
 package com.wyekings.composable.compose.sideeffects
 
 import androidx.lifecycle.ViewModel
+import com.wyekings.composable.compose.sideeffects.pages.DerivedStatePage
 import com.wyekings.composable.compose.sideeffects.pages.DisposableEffectPage
 import com.wyekings.composable.compose.sideeffects.pages.LaunchedEffectPage
 import com.wyekings.composable.compose.sideeffects.pages.ProduceStatePage
@@ -26,6 +27,9 @@ class SideEffectsViewModel @Inject constructor() : ViewModel() {
         },
         Page("RememberUpdatedState") {
             RememberUpdatedStatePage()
+        },
+        Page("DerivedState") {
+            DerivedStatePage()
         },
         Page("rememberCoroutineScope") {
             RememberCoroutineScopePage()
