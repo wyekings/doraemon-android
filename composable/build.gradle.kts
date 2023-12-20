@@ -23,6 +23,12 @@ dependencies {
     implementation(libs.ui.tooling.preview)
     implementation(libs.compose.animation.graphics)
 
+    implementation(libs.rx.android)
+    implementation(libs.rx.java)
+    implementation(libs.compose.rxjava)
+    implementation(libs.compose.livedata)
+
+
     androidTestImplementation(libs.ui.test.junit4)
     debugImplementation(libs.ui.tooling)
     debugImplementation(libs.ui.test.manifest)

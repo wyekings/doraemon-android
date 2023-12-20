@@ -13,6 +13,7 @@ import com.wyekings.composable.compose.basic.TabRowScreen
 import com.wyekings.composable.compose.basic.TextScreen
 import com.wyekings.composable.compose.composable.ComposableScreen
 import com.wyekings.composable.compose.modifier.ModifierScreen
+import com.wyekings.composable.compose.sideeffects.SideEffectsScreen
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
@@ -55,6 +56,9 @@ class ComposableViewModel @Inject constructor() : ViewModel() {
         Route("Modifier") {
             ModifierScreen()
         },
+        Route("SideEffects"){
+            SideEffectsScreen()
+        }
     )
 
     val composables: List<Route>
