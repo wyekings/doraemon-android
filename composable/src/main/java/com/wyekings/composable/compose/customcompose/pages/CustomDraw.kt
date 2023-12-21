@@ -2,6 +2,7 @@ package com.wyekings.composable.compose.customcompose.pages
 
 import android.graphics.Camera
 import androidx.compose.animation.core.Animatable
+import androidx.compose.animation.core.LinearEasing
 import androidx.compose.animation.core.infiniteRepeatable
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.Canvas
@@ -60,19 +61,32 @@ fun CustomDrawPage() {
 private fun NativeCanvasSample() {
     Box(modifier = Modifier.padding(10.dp)) {
         val avatarImage = ImageBitmap.imageResource(R.drawable.ic_avatar)
-        val camera = remember { Camera() }.apply {
-            
-        }
+        val camera = remember { Camera() }
         val paint = remember { Paint() }
+        val rotationAnimatable = remember { Animatable(0f) }
+        LaunchedEffect(Unit) {
+            rotationAnimatable.animateTo(
+                targetValue = 360f,
+                animationSpec = infiniteRepeatable(
+                    tween(durationMillis = 2000, easing = LinearEasing)
+                ),
+            )
+        }
         Canvas(
             modifier = Modifier.size(80.dp),
         ) {
-            drawIntoCanvas {
-                camera.applyToCanvas(it.nativeCanvas)
-                it.drawImageRect(
-                    avatarImage,
-                    dstSize = IntSize(size.width.roundToInt(), size.height.roundToInt()),
-                    paint = paint
+            val dstSize = IntSize(size.width.roundToInt(), size.height.roundToInt())
+            drawIntoCanvas {canvas ->
+                canvas.translate(size.width / 2, size.height / 2)
+                canvas.rotate(-45f)
+                camera.save()
+                camera.rotateX(rotationAnimatable.value)
+                camera.applyToCanvas(canvas.nativeCanvas)
+                camera.restore()
+                canvas.rotate(45f)
+                canvas.translate(-size.width / 2, -size.height / 2)
+                canvas.drawImageRect(
+                    avatarImage, dstSize = dstSize, paint = paint
                 )
             }
         }
@@ -111,6 +125,7 @@ private fun RotateCanvasSample() {
     Box(modifier = Modifier.padding(10.dp)) {
         val avatarImage = ImageBitmap.imageResource(R.drawable.ic_avatar)
         Canvas(modifier = Modifier.size(80.dp)) {
+            drawRect(Color.Yellow)
             rotate(45f) {
                 drawImage(
                     image = avatarImage,

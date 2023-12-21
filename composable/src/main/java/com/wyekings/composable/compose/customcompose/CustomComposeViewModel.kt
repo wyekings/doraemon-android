@@ -3,6 +3,7 @@ package com.wyekings.composable.compose.customcompose
 import androidx.lifecycle.ViewModel
 import com.wyekings.composable.compose.customcompose.pages.CustomDrawPage
 import com.wyekings.composable.compose.customcompose.pages.CustomLayoutPage
+import com.wyekings.composable.compose.customcompose.pages.CustomSubcomposeLayoutPage
 import com.wyekings.composable.ui.Page
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
@@ -13,8 +14,11 @@ class CustomComposeViewModel @Inject constructor() : ViewModel() {
         Page(title = "CustomDraw") {
             CustomDrawPage()
         },
-        Page(title = "CustomLayout") {
+        Page(title = "Layout") {
             CustomLayoutPage()
+        },
+        Page(title = "SubcomposeLayout") {
+            CustomSubcomposeLayoutPage()
         },
     ).reversed()
 }
