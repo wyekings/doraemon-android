@@ -19,6 +19,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.movableContentOf
+import androidx.compose.runtime.movableContentWithReceiverOf
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -46,7 +47,6 @@ import com.wyekings.common.R
 import kotlinx.coroutines.launch
 import timber.log.Timber
 
-@OptIn(ExperimentalComposeUiApi::class)
 @Composable
 fun LookaheadScopePage() {
     Box(
@@ -106,168 +106,68 @@ fun Modifier.animateSizeAndPlacement(lookaheadScope: LookaheadScope) = composed 
     val offsetAnimation = remember { Animatable(IntOffset.Zero, IntOffset.VectorConverter) }
     val sizeAnimation = remember { Animatable(IntSize.Zero, IntSize.VectorConverter) }
 
-    this.intermediateLayout { measurable, originalConstraints ->
-        val constraints =
-            if (sizeAnimation.value == IntSize.Zero) originalConstraints else Constraints.fixed(
-                sizeAnimation.value.width, sizeAnimation.value.height
-            )
-        val placeable = measurable.measure(constraints)
-        layout(placeable.width, placeable.height) {
-            val coordinates = coordinates
-            if (coordinates != null) {
-                val target = with(lookaheadScope) {
-                    lookaheadScopeCoordinates.localLookaheadPositionOf(coordinates).round()
-                }
-                if (target != offsetAnimation.targetValue) {
-                    launch {
-                        offsetAnimation.animateTo(target)
-                    }
-                }
-
-                val lookaheadSize = lookaheadSize
-                if (lookaheadSize != sizeAnimation.targetValue) {
-                    launch {
-                        sizeAnimation.animateTo(lookaheadSize)
-                    }
-                }
-                val placementOffset =
-                    lookaheadScopeCoordinates.localPositionOf(coordinates, Offset.Zero).round()
-                val (x, y) = offsetAnimation.value - placementOffset
-                placeable.placeRelative(x, y)
-            } else {
-                placeable.placeRelative(0, 0)
-            }
-        }
-    }
-}
-
-@OptIn(ExperimentalComposeUiApi::class)
-fun Modifier.clickToExpand() = composed {
-    LookaheadScope {
-
-
-    }
-    var expanded by remember { mutableStateOf(false) }
-    var height by remember { mutableIntStateOf(0) }
-    val heightAnimate = animateIntAsState(targetValue = height, label = "height")
     this
-        .intermediateLayout { measurable, constraints ->
-            // get lookahead size
-            height = lookaheadSize.height
-            val placeable =
-                measurable.measure(Constraints.fixed(lookaheadSize.width, heightAnimate.value))
+        .layout { measurable, constraints ->
+            val placeable = measurable.measure(constraints)
+            Timber.d("measure:1")
             layout(placeable.width, placeable.height) {
+                Timber.d("layout:1")
                 placeable.placeRelative(0, 0)
             }
         }
-        .then(if (expanded) height(100.dp) else Modifier)
-        .clickable {
-            expanded = !expanded
-        }
-}
+        .intermediateLayout { measurable, originalConstraints ->
+            val constraints =
+                if (sizeAnimation.value == IntSize.Zero) originalConstraints else Constraints.fixed(
+                    sizeAnimation.value.width, sizeAnimation.value.height
+                )
+            val placeable = measurable.measure(constraints)
+            Timber.d("measure:2")
 
-@OptIn(ExperimentalComposeUiApi::class)
-fun Modifier.clickToExpand1(lookaheadScope: LookaheadScope) = composed {
-    LookaheadScope {
-
-
-    }
-    var expanded by remember { mutableStateOf(false) }
-    var height by remember { mutableIntStateOf(0) }
-    val heightAnimate = animateIntAsState(targetValue = height, label = "height")
-    this
-        .intermediateLayout { measurable, constraints ->
-            // get lookahead size
-            height = lookaheadSize.height
-            val placeable =
-                measurable.measure(Constraints.fixed(lookaheadSize.width, heightAnimate.value))
-            layout(placeable.width, placeable.height) {
-                placeable.placeRelative(0, 0)
-            }
-        }
-        .then(if (expanded) height(100.dp) else Modifier)
-        .clickable {
-            expanded = !expanded
-        }
-}
-
-// 3 -> 1
-// 3 -> 2 -> 1
-@OptIn(ExperimentalComposeUiApi::class)
-fun Modifier.testIntermediateLayout() = this
-    .layout { measurable, constraints ->
-        val placeable = measurable.measure(constraints)
-        Timber.d("layout1----------->")
-        layout(placeable.width, placeable.height) {
-            placeable.placeRelative(0, 0)
-        }
-    }
-    .intermediateLayout { measurable, constraints ->
-        val placeable = measurable.measure(constraints)
-        Timber.d("layout2----------->")
-        layout(placeable.width, placeable.height) {
-            val coordinates = coordinates
-            if (coordinates != null) {
-//                with(lookaheadScope) {
-
-                lookaheadScopeCoordinates.localPositionOf(coordinates, Offset.Zero)
-                val offset = lookaheadScopeCoordinates.localLookaheadPositionOf(coordinates)
-                Timber.d("offset=$offset")
-//                }
-            }
-
-            placeable.placeRelative(0, 0)
-        }
-    }
-    .layout { measurable, constraints ->
-        val placeable = measurable.measure(constraints)
-        Timber.d("layout3----------->")
-        layout(placeable.width, placeable.height) {
-            placeable.placeRelative(0, 0)
-        }
-    }
-
-@OptIn(ExperimentalComposeUiApi::class)
-fun Modifier.lookahead(lookaheadScope: LookaheadScope) = this
-    .layout { measurable, constraints ->
-        val placeable = measurable.measure(constraints)
-        layout(placeable.width, placeable.height) {
-            placeable.placeRelative(0, 0)
-        }
-    }
-    .intermediateLayout { measurable, constraints ->
-        val placeable = measurable.measure(constraints)
-        layout(placeable.width, placeable.height) {
-            val coordinates = coordinates
-            if (coordinates != null) {
-                with(lookaheadScope) {
-                    lookaheadScopeCoordinates.localPositionOf(coordinates, Offset.Zero)
+            val lookaheadSize = lookaheadSize
+            if (lookaheadSize != sizeAnimation.targetValue) {
+                launch {
+                    sizeAnimation.animateTo(lookaheadSize)
                 }
             }
-            placeable.placeRelative(0, 0)
-        }
-    }
-    .layout { measurable, constraints ->
-        val placeable = measurable.measure(constraints)
-        layout(placeable.width, placeable.height) {
-            placeable.placeRelative(0, 0)
-        }
-    }
 
-@OptIn(ExperimentalComposeUiApi::class)
-@Composable
-fun Modifier.transform(lookaheadScope: LookaheadScope) = composed {
-    var targetOffset = remember { mutableStateOf(Offset.Zero) }
-    this.intermediateLayout { measurable, constraints ->
-        val placeable = measurable.measure(constraints)
-        layout(placeable.width, placeable.height) {
-            val coordinates = coordinates
+            layout(placeable.width, placeable.height) {
+                val coordinates = coordinates
+                if (coordinates != null) {
+                    val target = with(lookaheadScope) {
+                        lookaheadScopeCoordinates
+                            .localLookaheadPositionOf(coordinates)
+                            .round()
+                    }
 
-            placeable.placeRelative(0, 0)
+                    Timber.d("target=$target")
+                    if (target != offsetAnimation.targetValue) {
+                        launch {
+                            offsetAnimation.animateTo(target)
+                        }
+                    }
+
+                    val placementOffset = lookaheadScopeCoordinates
+                        .localPositionOf(coordinates, Offset.Zero)
+                        .round()
+
+                    val (x, y) = offsetAnimation.value - placementOffset
+                    Timber.d("layout:2")
+                    placeable.placeRelative(x, y)
+                } else {
+                    placeable.placeRelative(0, 0)
+                }
+            }
         }
-    }
+        .layout { measurable, constraints ->
+            val placeable = measurable.measure(constraints)
+            Timber.d("measure:3")
+            layout(placeable.width, placeable.height) {
+                Timber.d("layout:3")
+                placeable.placeRelative(0, 0)
+            }
+        }
+
 }
-
 
 @Preview
 @Composable
