@@ -11,6 +11,7 @@ import com.wyekings.composable.compose.basic.ButtonScreen
 import com.wyekings.composable.compose.basic.ImageScreen
 import com.wyekings.composable.compose.basic.TabRowScreen
 import com.wyekings.composable.compose.basic.TextScreen
+import com.wyekings.composable.compose.basic.buttons.ButtonsScreen
 import com.wyekings.composable.compose.composable.ComposableScreen
 import com.wyekings.composable.compose.customcompose.CustomComposeScreen
 import com.wyekings.composable.compose.modifier.ModifierScreen
@@ -27,8 +28,8 @@ class ComposableViewModel @Inject constructor() : ViewModel() {
         }
     }, Route("Text") {
         TextScreen()
-    }, Route("Button") {
-        ButtonScreen()
+    }, Route("Buttons") {
+        ButtonsScreen()
     }, Route("Image") {
         ImageScreen()
     }, Route("TabRow") {
