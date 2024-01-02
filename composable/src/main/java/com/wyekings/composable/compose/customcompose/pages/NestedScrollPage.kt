@@ -26,6 +26,7 @@ import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.IntOffset
+import androidx.compose.ui.unit.Velocity
 import androidx.compose.ui.unit.dp
 import kotlin.math.roundToInt
 
@@ -38,11 +39,20 @@ fun NestedScrollPage() {
                 return super.onPreScroll(available, source)
             }
 
+            override suspend fun onPreFling(available: Velocity): Velocity {
+                return super.onPreFling(available)
+            }
+
+
             override fun onPostScroll(
                 consumed: Offset, available: Offset, source: NestedScrollSource
             ): Offset {
                 offsetY += available.y
                 return available
+            }
+
+            override suspend fun onPostFling(consumed: Velocity, available: Velocity): Velocity {
+                return super.onPostFling(consumed, available)
             }
         }
     }

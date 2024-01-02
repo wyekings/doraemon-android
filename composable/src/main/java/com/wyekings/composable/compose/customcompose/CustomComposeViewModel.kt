@@ -1,6 +1,7 @@
 package com.wyekings.composable.compose.customcompose
 
 import androidx.lifecycle.ViewModel
+import com.wyekings.composable.compose.customcompose.pages.AwaitEachGesturePage
 import com.wyekings.composable.compose.customcompose.pages.CustomDrawPage
 import com.wyekings.composable.compose.customcompose.pages.CustomLayoutPage
 import com.wyekings.composable.compose.customcompose.pages.CustomSubcomposeLayoutPage
@@ -43,6 +44,9 @@ class CustomComposeViewModel @Inject constructor() : ViewModel() {
         },
         Page(title = "DetectTransformGestures") {
             DetectTransformGesturesPage()
+        },
+        Page(title = "AwaitEachGesture") {
+            AwaitEachGesturePage()
         },
     ).reversed()
 }
