@@ -13,7 +13,6 @@ import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.ScrollableTabRow
 import androidx.compose.material3.Tab
-import androidx.compose.material3.TabRow
 import androidx.compose.material3.TabRowDefaults
 import androidx.compose.material3.TabRowDefaults.tabIndicatorOffset
 import androidx.compose.material3.Text
@@ -25,6 +24,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.compose.ui.zIndex
 import com.wyekings.composeable.ripple.rememberNoRippleInteractionSource
 import kotlinx.coroutines.launch
 
@@ -39,12 +39,13 @@ fun TabPager(pages: List<Page>, modifier: Modifier = Modifier) {
             modifier = Modifier
                 .fillMaxWidth()
                 .background(Color.White)
+                .zIndex(1f)
 //                .windowInsetsPadding(WindowInsets.safeDrawing)
                 .safeDrawingPadding()
                 .height(40.dp),
             divider = {},
             indicator = { tabPositions ->
-                TabRowDefaults.Indicator(
+                TabRowDefaults.SecondaryIndicator(
                     modifier = Modifier
                         .tabIndicatorOffset(tabPositions[state.currentPage])
                         .clip(RoundedCornerShape(8.dp))
@@ -54,7 +55,7 @@ fun TabPager(pages: List<Page>, modifier: Modifier = Modifier) {
                 )
             },
             selectedTabIndex = state.currentPage,
-            containerColor = Color.Transparent,
+            containerColor = Color.White,
         ) {
             pages.forEachIndexed { index, page ->
                 val coroutineScope = rememberCoroutineScope()
