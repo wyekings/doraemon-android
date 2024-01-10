@@ -1,8 +1,13 @@
 package com.wyekings.composable.compose.customcompose.pages
 
 import android.widget.Toast
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.gestures.awaitEachGesture
 import androidx.compose.foundation.gestures.awaitFirstDown
+import androidx.compose.foundation.gestures.calculateCentroid
+import androidx.compose.foundation.gestures.calculatePan
+import androidx.compose.foundation.gestures.calculateRotation
+import androidx.compose.foundation.gestures.calculateZoom
 import androidx.compose.foundation.gestures.waitForUpOrCancellation
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -12,6 +17,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.input.pointer.PointerEventPass
 import androidx.compose.ui.input.pointer.PointerEventType
 import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.platform.LocalContext
@@ -43,26 +49,14 @@ fun AwaitEachGesturePage(modifier: Modifier = Modifier) {
         }, onCancel = {
             Toast.makeText(context, "on cancel", Toast.LENGTH_LONG).show()
         }))
-
-//        Text(text = "AwaitEachGesture", modifier.pointerInput(Unit) {
-//            awaitEachGesture {
-////                val initialEvent = awaitPointerEvent(PointerEventPass.Initial)
-////                val mainEvent = awaitPointerEvent(PointerEventPass.Main)
-////                val finalEvent = awaitPointerEvent(PointerEventPass.Final)
-//                while (true) {
-//                    val event = awaitPointerEvent()
-//                    Timber.d("event=${event.type}")
-//                }
-////                awaitFirstDown()
-////                waitForUpOrCancellation()
-//            }
-//        })
+        Modifier.clickable {  }
     }
 }
 
 private fun Modifier.customClick1(onClick: () -> Unit) = this then pointerInput(Unit) {
     awaitEachGesture {
         while (true) {
+            awaitFirstDown()
             val event = awaitPointerEvent()
             if (event.type == PointerEventType.Move) {
                 val pos = event.changes[0].position
@@ -105,6 +99,36 @@ private fun Modifier.onEvent(
             onUp()
         } else {
             onCancel()
+        }
+    }
+}
+
+private fun Modifier.pointerEventPass() = this then pointerInput(Unit) {
+    awaitEachGesture {
+        val initialEvent = awaitPointerEvent(PointerEventPass.Initial)
+        val mainEvent = awaitPointerEvent(PointerEventPass.Main)
+        val finalEvent = awaitPointerEvent(PointerEventPass.Final)
+    }
+}
+
+private fun Modifier.consume() = this then pointerInput(Unit) {
+    awaitEachGesture {
+        val event = awaitPointerEvent()
+        event.changes.forEach {
+            if (!it.isConsumed) {
+                it.consume()
+            }
+        }
+    }
+}
+private fun Modifier.calculate() = this then pointerInput(Unit) {
+    awaitEachGesture {
+        while (true) {
+            val event = awaitPointerEvent()
+            val centroid = event.calculateCentroid()
+            val pan = event.calculatePan()
+            val zoom = event.calculateZoom()
+            val rotation = event.calculateRotation()
         }
     }
 }

@@ -94,5 +94,10 @@ dependencies {
     testImplementation(libs.junit4)
     androidTestImplementation(libs.androidx.test.ext.junit)
     androidTestImplementation(libs.espresso.core)
+}
 
+gradle.taskGraph.whenReady {
+    allTasks.forEach {
+        println("${it.name}:${it.javaClass.name}")
+    }
 }

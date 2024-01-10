@@ -26,6 +26,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import timber.log.Timber
 import javax.inject.Inject
 import javax.inject.Named
+import kotlin.math.cos
 
 @AndroidEntryPoint
 class MainActivity : BaseActivity(R.layout.activity_main) {
