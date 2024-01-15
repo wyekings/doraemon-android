@@ -19,10 +19,6 @@ abstract class Layout @JvmOverloads constructor(
     context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0, defStyleRes: Int = 0
 ) : ViewGroup(context, attrs, defStyleAttr, defStyleRes) {
 
-    init {
-        this.setWillNotDraw(true)
-    }
-
     class LayoutParams(width: Int, height: Int) : MarginLayoutParams(width, height)
 
     override fun generateDefaultLayoutParams(): LayoutParams {

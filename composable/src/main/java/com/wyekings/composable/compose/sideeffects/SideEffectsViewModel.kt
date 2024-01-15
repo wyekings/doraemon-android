@@ -4,6 +4,7 @@ import androidx.lifecycle.ViewModel
 import com.wyekings.composable.compose.sideeffects.pages.DerivedStatePage
 import com.wyekings.composable.compose.sideeffects.pages.DisposableEffectPage
 import com.wyekings.composable.compose.sideeffects.pages.LaunchedEffectPage
+import com.wyekings.composable.compose.sideeffects.pages.LifecycleEventEffectPage
 import com.wyekings.composable.compose.sideeffects.pages.ProduceStatePage
 import com.wyekings.composable.compose.sideeffects.pages.RememberCoroutineScopePage
 import com.wyekings.composable.compose.sideeffects.pages.RememberUpdatedStatePage
@@ -39,6 +40,9 @@ class SideEffectsViewModel @Inject constructor() : ViewModel() {
         },
         Page("SnapshotFlow") {
             SnapshotFlowPage()
+        },
+        Page("LifecycleEventEffect") {
+            LifecycleEventEffectPage()
         },
     ).reversed()
 }

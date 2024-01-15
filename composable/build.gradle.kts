@@ -22,6 +22,8 @@ dependencies {
     implementation(libs.material.compose)
     implementation(libs.ui.tooling.preview)
     implementation(libs.compose.animation.graphics)
+    implementation(libs.lifecycle.runtime.ktx)
+    implementation(libs.lifecycle.runtime.compose)
 
     implementation(libs.rx.android)
     implementation(libs.rx.java)
