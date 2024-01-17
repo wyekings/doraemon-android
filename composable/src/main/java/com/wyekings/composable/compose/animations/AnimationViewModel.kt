@@ -12,6 +12,7 @@ import com.wyekings.composable.compose.animations.pages.AnimateVectorPage
 import com.wyekings.composable.compose.animations.pages.AnimationPage
 import com.wyekings.composable.compose.animations.pages.RadarLoadingPage
 import com.wyekings.composable.compose.animations.pages.RepeatAnimationPage
+import com.wyekings.composable.compose.animations.pages.RubberBandSliderPage
 import com.wyekings.composable.ui.Page
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
@@ -30,5 +31,6 @@ class AnimationViewModel @Inject constructor() : ViewModel() {
         Page(title = "Animation", content = { AnimationPage() }),
         Page(title = "AnimateVector", content = { AnimateVectorPage() }),
         Page(title = "RadarLoading", content = { RadarLoadingPage() }),
+        Page(title = "RubberBrandSlider", content = { RubberBandSliderPage() }),
     ).reversed()
 }

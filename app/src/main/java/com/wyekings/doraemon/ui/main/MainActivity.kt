@@ -40,6 +40,7 @@ class MainActivity : BaseActivity(R.layout.activity_main) {
     }
     private val viewModel by viewModels<MainViewModel>()
     override fun onCreate(savedInstanceState: Bundle?) {
+        window
         val splashScreen = installSplashScreen().apply { setKeepOnScreenCondition { true } }
         super.onCreate(savedInstanceState)
         applyEdgeToEdge()
