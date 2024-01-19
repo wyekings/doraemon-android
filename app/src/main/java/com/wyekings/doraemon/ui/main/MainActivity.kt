@@ -24,6 +24,7 @@ import com.wyekings.uikit.pager.bind
 import com.wyekings.uikit.pager.selectPager
 import dagger.hilt.android.AndroidEntryPoint
 import timber.log.Timber
+import java.util.concurrent.Executors
 import javax.inject.Inject
 import javax.inject.Named
 import kotlin.math.cos
@@ -40,7 +41,6 @@ class MainActivity : BaseActivity(R.layout.activity_main) {
     }
     private val viewModel by viewModels<MainViewModel>()
     override fun onCreate(savedInstanceState: Bundle?) {
-        window
         val splashScreen = installSplashScreen().apply { setKeepOnScreenCondition { true } }
         super.onCreate(savedInstanceState)
         applyEdgeToEdge()
@@ -71,6 +71,7 @@ class MainActivity : BaseActivity(R.layout.activity_main) {
 
     private fun hideSplashScreen(splashScreen: SplashScreen) {
         viewBinding.root.post { splashScreen.setKeepOnScreenCondition { false } }
+        window.decorView
     }
 
     private fun bindUi() {
