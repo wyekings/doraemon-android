@@ -16,7 +16,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
-import com.wyekings.composable.compose.ripple.NoRippleTheme
 import com.wyekings.composable.ui.TopBar
 import com.wyekings.composeable.ripple.rememberNoRippleInteractionSource
 
