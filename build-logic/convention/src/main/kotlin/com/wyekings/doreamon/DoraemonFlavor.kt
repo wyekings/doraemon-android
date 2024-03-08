@@ -23,7 +23,7 @@ enum class DoraemonFlavor(val dimension: FlavorDimension, val applicationIdSuffi
 }
 
 fun configureFlavors(
-    commonExtension: CommonExtension<*, *, *, *, *>,
+    commonExtension: CommonExtension<*, *, *, *, *,*>,
     flavorConfigurationBlock: ProductFlavor.(flavor: DoraemonFlavor) -> Unit = {},
 ) {
     commonExtension.apply {

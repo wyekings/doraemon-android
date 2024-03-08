@@ -49,11 +49,11 @@ fun AwaitEachGesturePage(modifier: Modifier = Modifier) {
         }, onCancel = {
             Toast.makeText(context, "on cancel", Toast.LENGTH_LONG).show()
         }))
-        Modifier.clickable {  }
+        Modifier.clickable { }
     }
 }
 
-private fun Modifier.customClick1(onClick: () -> Unit) = this then pointerInput(Unit) {
+private fun Modifier.customClick1(onClick: () -> Unit) = this then Modifier.pointerInput(Unit) {
     awaitEachGesture {
         while (true) {
             awaitFirstDown()
@@ -71,7 +71,7 @@ private fun Modifier.customClick1(onClick: () -> Unit) = this then pointerInput(
     }
 }
 
-private fun Modifier.customClick2(onClick: () -> Unit) = this then pointerInput(Unit) {
+private fun Modifier.customClick2(onClick: () -> Unit) = this then Modifier.pointerInput(Unit) {
     awaitEachGesture {
         waitForUpOrCancellation()?.let {
             onClick()
@@ -81,7 +81,7 @@ private fun Modifier.customClick2(onClick: () -> Unit) = this then pointerInput(
 
 private fun Modifier.onEvent(
     onPressed: () -> Unit, onMoved: () -> Unit, onUp: () -> Unit, onCancel: () -> Unit
-) = this then pointerInput(Unit) {
+) = this then Modifier.pointerInput(Unit) {
     awaitEachGesture {
         awaitFirstDown()
         onPressed()
@@ -103,7 +103,7 @@ private fun Modifier.onEvent(
     }
 }
 
-private fun Modifier.pointerEventPass() = this then pointerInput(Unit) {
+private fun Modifier.pointerEventPass() = this then Modifier.pointerInput(Unit) {
     awaitEachGesture {
         val initialEvent = awaitPointerEvent(PointerEventPass.Initial)
         val mainEvent = awaitPointerEvent(PointerEventPass.Main)
@@ -111,7 +111,7 @@ private fun Modifier.pointerEventPass() = this then pointerInput(Unit) {
     }
 }
 
-private fun Modifier.consume() = this then pointerInput(Unit) {
+private fun Modifier.consume() = this then Modifier.pointerInput(Unit) {
     awaitEachGesture {
         val event = awaitPointerEvent()
         event.changes.forEach {
@@ -121,7 +121,8 @@ private fun Modifier.consume() = this then pointerInput(Unit) {
         }
     }
 }
-private fun Modifier.calculate() = this then pointerInput(Unit) {
+
+private fun Modifier.calculate() = this then Modifier.pointerInput(Unit) {
     awaitEachGesture {
         while (true) {
             val event = awaitPointerEvent()

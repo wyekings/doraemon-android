@@ -107,7 +107,7 @@ fun AnimatableScreen() {
             val decaySpec = remember { exponentialDecay<Dp>() }
             LaunchedEffect(decay) {
 //                decayAnim.snapTo(0.dp)
-                val result = decayAnim.animateDecay(initialVelocity = 1000.dp, decaySpec) {
+                decayAnim.animateDecay(initialVelocity = 1000.dp, decaySpec) {
                     padding = decayAnim.value
                 }
             }
@@ -218,10 +218,10 @@ private fun AnimatableTopBar(onSelect: (String, AnimationSpec<Dp>) -> Unit) {
                     keyframes {
                         durationMillis = 750
                         delayMillis = 0
-                        0.dp at 250 with LinearOutSlowInEasing
-                        128.dp at 250 with FastOutSlowInEasing
-                        384.dp at 500 with FastOutLinearInEasing
-                        256.dp at 750 with LinearEasing
+                        0.dp at 250 using LinearOutSlowInEasing
+                        128.dp at 250 using FastOutSlowInEasing
+                        384.dp at 500 using FastOutLinearInEasing
+                        256.dp at 750 using LinearEasing
                     },
                 )
             })

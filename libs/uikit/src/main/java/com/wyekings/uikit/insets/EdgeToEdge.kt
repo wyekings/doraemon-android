@@ -48,7 +48,7 @@ private fun View.doOnApplyInsets(block: (View, WindowInsetsCompat, ViewState) ->
     val initialViewState = ViewState(this)
     ViewCompat.setOnApplyWindowInsetsListener(
         this
-    ) { v, insets ->
+    ) { _, insets ->
         block.invoke(this@doOnApplyInsets, insets, initialViewState)
         WindowInsetsCompat.CONSUMED
     }

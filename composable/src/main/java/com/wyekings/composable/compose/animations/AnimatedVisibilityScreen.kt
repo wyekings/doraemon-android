@@ -152,9 +152,9 @@ private fun ColumnScope.AnimatedVisibilitySample() {
         )
     }
 
-    val a = remember {
-        Animatable(1.dp, Dp.VectorConverter)
-    }
+//    val a = remember {
+//        Animatable(1.dp, Dp.VectorConverter)
+//    }
 
     val transition = updateTransition(targetState = show, label = "visibility")
     transition.AnimatedVisibility(visible = { visible -> visible },

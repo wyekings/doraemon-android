@@ -3,6 +3,7 @@ package com.wyekings.composable.compose.animations
 import androidx.compose.animation.core.MutableTransitionState
 import androidx.compose.animation.core.animateDp
 import androidx.compose.animation.core.rememberInfiniteTransition
+import androidx.compose.animation.core.rememberTransition
 import androidx.compose.animation.core.spring
 import androidx.compose.animation.core.tween
 import androidx.compose.animation.core.updateTransition
@@ -36,7 +37,7 @@ fun TransitionScreen() {
         var expanded by remember { mutableStateOf(false) }
         val transitionState = remember { MutableTransitionState(!expanded) }
         transitionState.targetState = expanded
-        val transition = updateTransition(label = "transition", transitionState = transitionState)
+        val transition = rememberTransition(transitionState = transitionState, label = "transition")
 //        val transition = updateTransition(label = "transition", targetState = expanded)
 //        val infiniteTransition = rememberInfiniteTransition(label = "infinite")
         val size by transition.animateDp(label = "size", transitionSpec = {

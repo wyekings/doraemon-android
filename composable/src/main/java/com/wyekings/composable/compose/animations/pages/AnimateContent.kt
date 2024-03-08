@@ -162,7 +162,7 @@ fun AnimateContentPage() {
                     ) using SizeTransform { initialSize, targetSize ->
                         if (targetState) {
                             keyframes {
-                                IntSize(targetSize.width, initialSize.height) at 300 with LinearEasing
+                                IntSize(targetSize.width, initialSize.height) at 300 using LinearEasing
                                 durationMillis = 400
                             }
                         } else {
