@@ -16,14 +16,15 @@ import timber.log.Timber
 @Composable
 fun LifecycleEventEffectPage() {
     Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
-        LifecycleStartEffect {
+
+        LifecycleStartEffect(Unit) {
             Timber.d("LifecycleStartEffect")
             onStopOrDispose {
 
             }
         }
 
-        LifecycleResumeEffect() {
+        LifecycleResumeEffect(Unit) {
             Timber.d("LifecycleResumeEffect")
             onPauseOrDispose {
 
