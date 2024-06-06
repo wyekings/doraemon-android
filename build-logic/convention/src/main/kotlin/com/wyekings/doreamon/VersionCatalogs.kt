@@ -43,7 +43,7 @@ internal val Project.libsBuildJVMJavaVersion: JavaVersion
     get() = JavaVersion.toVersion(libsCompileJVM)
 
 internal val Project.libsComposeCompiler: String
-    get() = libs.findVersion("compose-compiler").get().toString()
+    get() = libs.findPlugin("compose-compiler").get().get().pluginId
 
 internal val Project.libsComposeBom: Provider<MinimalExternalModuleDependency>
     get() = libs.findLibrary("compose-bom").get()
