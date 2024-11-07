@@ -62,6 +62,7 @@ dependencies {
     implementation(project(":composable"))
     implementation(project(":arch:sunflower"))
     implementation(project(":arch:playground"))
+    implementation(project(":feature:ftms"))
 
     implementation(libs.splash.screen)
 

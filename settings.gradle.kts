@@ -1,5 +1,8 @@
 @file:Suppress("UnstableApiUsage")
 
+include(":feature:ftms")
+
+
 
 pluginManagement {
     includeBuild("build-logic")
