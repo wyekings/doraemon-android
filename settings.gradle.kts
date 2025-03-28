@@ -1,7 +1,5 @@
 @file:Suppress("UnstableApiUsage")
 
-include(":feature:ftms")
-
 
 
 pluginManagement {
@@ -24,11 +22,12 @@ rootProject.name = "Doraemon"
 include(":base")
 include(":app")
 include(":common")
+include(":feature:component")
 include(":feature:compose")
 include(":feature:legacy")
-include(":arch:sunflower")
-include(":arch:playground")
+include(":feature:ftms")
 include(":libs:context")
 include(":libs:uikit")
 include(":libs:logger")
 include(":libs:accompanist")
+

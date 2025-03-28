@@ -1,9 +1,9 @@
 package com.wyekings.doraemon.ui.main
 
 import androidx.lifecycle.ViewModel
+import com.wyekings.component.playground.PlaygroundActivity
+import com.wyekings.component.sunflower.SunflowerActivity
 import com.wyekings.doraemon.ui.main.domain.model.Module
-import com.wyekings.playground.PlaygroundActivity
-import com.wyekings.sunflower.SunflowerActivity
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow

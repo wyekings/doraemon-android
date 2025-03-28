@@ -58,10 +58,9 @@ dependencies {
     implementation(project(":libs:logger"))
     implementation(project(":libs:accompanist"))
     implementation(project(":libs:uikit"))
+    implementation(project(":feature:component"))
     implementation(project(":feature:legacy"))
     implementation(project(":feature:compose"))
-    implementation(project(":arch:sunflower"))
-    implementation(project(":arch:playground"))
     implementation(project(":feature:ftms"))
 
     implementation(libs.splash.screen)
