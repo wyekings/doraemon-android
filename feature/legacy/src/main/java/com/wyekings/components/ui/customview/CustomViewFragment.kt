@@ -8,7 +8,7 @@ import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import by.kirich1409.viewbindingdelegate.viewBinding
-import com.wyekings.base.BaseFragment
+import com.wyekings.common.base.BaseFragment
 import com.wyekings.components.R
 import com.wyekings.components.databinding.FragmentCustomViewBinding
 import dagger.hilt.android.AndroidEntryPoint

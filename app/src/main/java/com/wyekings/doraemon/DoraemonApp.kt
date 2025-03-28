@@ -5,7 +5,7 @@ import coil.ImageLoader
 import coil.ImageLoaderFactory
 import coil.decode.GifDecoder
 import coil.decode.ImageDecoderDecoder
-import com.wyekings.base.BaseApplication
+import com.wyekings.common.base.BaseApplication
 import dagger.hilt.android.HiltAndroidApp
 
 /**

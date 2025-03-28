@@ -8,7 +8,6 @@ android {
 }
 
 dependencies {
-
 //    implementation(libs.core.ktx)
     api(libs.appcompat)
     api(libs.activity.compose)

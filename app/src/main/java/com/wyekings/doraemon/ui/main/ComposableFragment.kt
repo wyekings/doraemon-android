@@ -10,8 +10,8 @@ import androidx.lifecycle.repeatOnLifecycle
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import by.kirich1409.viewbindingdelegate.viewBinding
-import com.wyekings.base.BaseFragment
 import com.wyekings.base.ext.start
+import com.wyekings.common.base.BaseFragment
 import com.wyekings.doraemon.R
 import com.wyekings.doraemon.databinding.FragmentComposableBinding
 import com.wyekings.uikit.pager.Pager
@@ -27,9 +27,10 @@ import javax.inject.Inject
  *  @author wye on 9/5/23
  */
 @AndroidEntryPoint
-class ComposableFragment @Inject constructor(): BaseFragment(R.layout.fragment_composable),Pager {
+class ComposableFragment @Inject constructor() : BaseFragment(R.layout.fragment_composable), Pager {
 
-    @Inject lateinit var moduleAdapter:ModuleAdapter
+    @Inject
+    lateinit var moduleAdapter: ModuleAdapter
 
     private val viewModel by viewModels<ComposableViewModel>()
     private val viewBinding by viewBinding(FragmentComposableBinding::bind)
@@ -45,6 +46,7 @@ class ComposableFragment @Inject constructor(): BaseFragment(R.layout.fragment_c
             recyclerView.bind()
         }
     }
+
     private fun RecyclerView.bind() {
         adapter = moduleAdapter.setOnClickListener { start(it.clazz) }
         layoutManager = GridLayoutManager(requireContext(), SPAN_COUNT)

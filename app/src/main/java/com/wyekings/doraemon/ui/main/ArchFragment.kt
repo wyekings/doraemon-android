@@ -10,8 +10,8 @@ import androidx.lifecycle.repeatOnLifecycle
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import by.kirich1409.viewbindingdelegate.viewBinding
-import com.wyekings.base.BaseFragment
 import com.wyekings.base.ext.start
+import com.wyekings.common.base.BaseFragment
 import com.wyekings.doraemon.R
 import com.wyekings.doraemon.databinding.FragmentArchBinding
 import com.wyekings.uikit.pager.Pager

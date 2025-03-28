@@ -54,7 +54,7 @@ android {
 }
 
 dependencies {
-    implementation(project(":base"))
+    implementation(project(":common"))
     implementation(project(":libs:logger"))
     implementation(project(":libs:accompanist"))
     implementation(project(":libs:uikit"))

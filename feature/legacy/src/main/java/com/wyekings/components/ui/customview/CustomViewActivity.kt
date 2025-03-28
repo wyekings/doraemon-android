@@ -4,7 +4,7 @@ import android.os.Bundle
 import androidx.activity.viewModels
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.google.android.material.tabs.TabLayoutMediator
-import com.wyekings.base.BaseActivity
+import com.wyekings.common.base.BaseActivity
 import com.wyekings.components.R
 import com.wyekings.components.databinding.ActivityCustomViewBinding
 import com.wyekings.uikit.insets.insetter.applyStatusBarInsets

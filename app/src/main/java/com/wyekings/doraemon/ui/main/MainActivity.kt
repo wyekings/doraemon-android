@@ -8,12 +8,9 @@ import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.core.content.ContextCompat
 import androidx.core.splashscreen.SplashScreen
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsAnimationCompat
-import androidx.core.view.WindowInsetsCompat
 import by.kirich1409.viewbindingdelegate.viewBinding
-import com.wyekings.base.BaseActivity
 import com.wyekings.base.ext.start
+import com.wyekings.common.base.BaseActivity
 import com.wyekings.doraemon.R
 import com.wyekings.doraemon.databinding.ActivityMainBinding
 import com.wyekings.doraemon.databinding.DrawerMainHeaderBinding
@@ -24,10 +21,8 @@ import com.wyekings.uikit.pager.bind
 import com.wyekings.uikit.pager.selectPager
 import dagger.hilt.android.AndroidEntryPoint
 import timber.log.Timber
-import java.util.concurrent.Executors
 import javax.inject.Inject
 import javax.inject.Named
-import kotlin.math.cos
 
 @AndroidEntryPoint
 class MainActivity : BaseActivity(R.layout.activity_main) {

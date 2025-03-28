@@ -14,7 +14,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
-import com.wyekings.base.BaseActivity
+import com.wyekings.common.base.BaseActivity
 import com.wyekings.base.ext.start
 import dagger.hilt.android.AndroidEntryPoint
 

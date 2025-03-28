@@ -1,4 +1,4 @@
-package com.wyekings.base
+package com.wyekings.common.base
 
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
